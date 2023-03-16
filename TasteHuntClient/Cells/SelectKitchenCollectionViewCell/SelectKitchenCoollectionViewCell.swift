@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-//import SDWebImage
+import SDWebImage
 
 final class SelectKitchenCoollectionViewCell: UICollectionViewCell {
     static let id = String(describing: SelectKitchenCoollectionViewCell.self)
