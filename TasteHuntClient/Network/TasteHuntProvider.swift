@@ -46,6 +46,20 @@ final class TasteHuntProvider {
         }
     }
     
+    func loginUser(username: String, password: String, success: @escaping ObjectResponce<AccessTokenModel>, failure: @escaping Error) {
+        provider.request(.login(
+            username: username,
+            password: password)
+        ) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode(AccessTokenModel.self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
     
     
 }
