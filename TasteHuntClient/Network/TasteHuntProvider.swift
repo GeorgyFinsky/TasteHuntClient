@@ -61,5 +61,17 @@ final class TasteHuntProvider {
         }
     }
     
+    func addKitchen(kitchen: String, success: @escaping ObjectResponce<GuestPublicModel>, failure: @escaping Error) {
+        provider.request(.addKitchens(kitchens: kitchen)) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode(GuestPublicModel.self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
+    
     
 }
