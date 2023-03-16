@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		0C4BB14429C36E9A00CB1C2F /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14329C36E9A00CB1C2F /* TabbarController.swift */; };
 		0C4BB14729C3734500CB1C2F /* CafeControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14629C3734500CB1C2F /* CafeControllers.swift */; };
+		0C4BB14E29C37AE400CB1C2F /* VisitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14D29C37AE400CB1C2F /* VisitsController.swift */; };
+		0C4BB15029C37AF100CB1C2F /* VisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14F29C37AF100CB1C2F /* VisitController.swift */; };
+		0C4BB15229C37B0400CB1C2F /* CreateVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15129C37B0400CB1C2F /* CreateVisitController.swift */; };
+		0C4BB15429C37B1800CB1C2F /* CafeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15329C37B1800CB1C2F /* CafeProfileController.swift */; };
+		0C4BB15629C37B2900CB1C2F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15529C37B2900CB1C2F /* SettingsController.swift */; };
+		0C4BB15929C37D9300CB1C2F /* CustomSegmentControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15829C37D9300CB1C2F /* CustomSegmentControll.swift */; };
+		0C4BB15C29C37DB200CB1C2F /* Segmentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */; };
 		0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */; };
 		0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */; };
 		0C9F2C9129BC9A04009C4723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8F29BC9A04009C4723 /* Main.storyboard */; };
@@ -39,6 +46,13 @@
 /* Begin PBXFileReference section */
 		0C4BB14329C36E9A00CB1C2F /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		0C4BB14629C3734500CB1C2F /* CafeControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeControllers.swift; sourceTree = "<group>"; };
+		0C4BB14D29C37AE400CB1C2F /* VisitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsController.swift; sourceTree = "<group>"; };
+		0C4BB14F29C37AF100CB1C2F /* VisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitController.swift; sourceTree = "<group>"; };
+		0C4BB15129C37B0400CB1C2F /* CreateVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVisitController.swift; sourceTree = "<group>"; };
+		0C4BB15329C37B1800CB1C2F /* CafeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeProfileController.swift; sourceTree = "<group>"; };
+		0C4BB15529C37B2900CB1C2F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		0C4BB15829C37D9300CB1C2F /* CustomSegmentControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControll.swift; sourceTree = "<group>"; };
+		0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segmentable.swift; sourceTree = "<group>"; };
 		0C9F2C8629BC9A04009C4723 /* TasteHuntClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteHuntClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +112,62 @@
 			path = CafeController;
 			sourceTree = "<group>";
 		};
+		0C4BB14829C37A4400CB1C2F /* VisitsController */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB14D29C37AE400CB1C2F /* VisitsController.swift */,
+			);
+			path = VisitsController;
+			sourceTree = "<group>";
+		};
+		0C4BB14929C37A5D00CB1C2F /* SettingsController */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB15529C37B2900CB1C2F /* SettingsController.swift */,
+			);
+			path = SettingsController;
+			sourceTree = "<group>";
+		};
+		0C4BB14A29C37A7700CB1C2F /* CreateVisitController */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB15129C37B0400CB1C2F /* CreateVisitController.swift */,
+			);
+			path = CreateVisitController;
+			sourceTree = "<group>";
+		};
+		0C4BB14B29C37A8700CB1C2F /* VisitController */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB14F29C37AF100CB1C2F /* VisitController.swift */,
+			);
+			path = VisitController;
+			sourceTree = "<group>";
+		};
+		0C4BB14C29C37AB000CB1C2F /* CafeProfileController */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB15329C37B1800CB1C2F /* CafeProfileController.swift */,
+			);
+			path = CafeProfileController;
+			sourceTree = "<group>";
+		};
+		0C4BB15729C37D7500CB1C2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB15829C37D9300CB1C2F /* CustomSegmentControll.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0C4BB15A29C37D9A00CB1C2F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		0C9F2C7D29BC9A04009C4723 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +189,8 @@
 		0C9F2C8829BC9A04009C4723 /* TasteHuntClient */ = {
 			isa = PBXGroup;
 			children = (
+				0C4BB15A29C37D9A00CB1C2F /* Protocols */,
+				0C4BB15729C37D7500CB1C2F /* Views */,
 				0C9F2CF629C2B161009C4723 /* Network */,
 				0C9F2CAD29BCA514009C4723 /* Helpers */,
 				0C9F2CA429BC9B05009C4723 /* Enums */,
@@ -141,7 +213,12 @@
 				0C9F2CB029BCA5AB009C4723 /* LoginViewController */,
 				0C9F2CB329BCFC5A009C4723 /* RegistrationController */,
 				0C4BB14229C36E6800CB1C2F /* TabbarController */,
+				0C4BB14829C37A4400CB1C2F /* VisitsController */,
+				0C4BB14B29C37A8700CB1C2F /* VisitController */,
+				0C4BB14A29C37A7700CB1C2F /* CreateVisitController */,
 				0C4BB14529C372DC00CB1C2F /* CafeController */,
+				0C4BB14C29C37AB000CB1C2F /* CafeProfileController */,
+				0C4BB14929C37A5D00CB1C2F /* SettingsController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,7 +383,7 @@
 			mainGroup = 0C9F2C7D29BC9A04009C4723;
 			packageReferences = (
 				0C9F2CA129BC9A89009C4723 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
+				0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 0C9F2C8729BC9A04009C4723 /* Products */;
 			projectDirPath = "";
@@ -397,6 +474,7 @@
 				0C9F2CAC29BCA13D009C4723 /* ControllersListEnum.swift in Sources */,
 				0C9F2CA729BC9B2A009C4723 /* ViewBackgroundColorEnum.swift in Sources */,
 				0C9F2CAA29BCA0EF009C4723 /* UIViewControllerExtention.swift in Sources */,
+				0C4BB14E29C37AE400CB1C2F /* VisitsController.swift in Sources */,
 				0C9F2CF929C2B17A009C4723 /* TasteHuntProvider.swift in Sources */,
 				0C9F2CB529BCFC7B009C4723 /* RegistrationViewController.swift in Sources */,
 				0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */,
@@ -404,15 +482,21 @@
 				0C9F2CFF29C30CC2009C4723 /* GuestModel.swift in Sources */,
 				0C9F2CB929BD03F3009C4723 /* UITextFieldTypeEnum.swift in Sources */,
 				0C9F2CAF29BCA527009C4723 /* Environment.swift in Sources */,
+				0C4BB15429C37B1800CB1C2F /* CafeProfileController.swift in Sources */,
 				0C9F2CB229BCA5DE009C4723 /* LoginViewController.swift in Sources */,
 				0CC62AC129C3115C00B13A5C /* AccessTokenModel.swift in Sources */,
+				0C4BB15629C37B2900CB1C2F /* SettingsController.swift in Sources */,
 				0C9F2CA029BC9A5C009C4723 /* BaseViewController.swift in Sources */,
 				0C4BB14429C36E9A00CB1C2F /* TabbarController.swift in Sources */,
 				0C9F2CC429BDFF8E009C4723 /* SelectKitchenCoollectionViewCell.swift in Sources */,
 				0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */,
+				0C4BB15C29C37DB200CB1C2F /* Segmentable.swift in Sources */,
 				0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */,
 				0CC62AC329C329DB00B13A5C /* KitchenTypeEnum.swift in Sources */,
 				0C4BB14729C3734500CB1C2F /* CafeControllers.swift in Sources */,
+				0C4BB15029C37AF100CB1C2F /* VisitController.swift in Sources */,
+				0C4BB15929C37D9300CB1C2F /* CustomSegmentControll.swift in Sources */,
+				0C4BB15229C37B0400CB1C2F /* CreateVisitController.swift in Sources */,
 				0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */,
 				0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */,
 			);
@@ -644,7 +728,7 @@
 				minimumVersion = 5.6.0;
 			};
 		};
-		0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -662,7 +746,7 @@
 		};
 		0CFFA15629C34EC7007051B1 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = 0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -19,9 +19,9 @@ final class BaseTabbarController: UITabBarController {
     }
     
     private func configurateTabBar() {
-        let visitsVC = VisitsController()
-        let cafesVC = CafesController()
-        let settingsVC = SettingsController()
+        let visitsVC = UINavigationController(rootViewController: VisitsController())
+        let cafesVC = UINavigationController(rootViewController: CafeController())
+        let settingsVC = UINavigationController(rootViewController: SettingsController())
         
         self.viewControllers = [visitsVC, cafesVC, settingsVC]
         visitsVC.tabBarItem = UITabBarItem(

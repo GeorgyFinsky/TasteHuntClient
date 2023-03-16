@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.windowScene = windowScene
-        setLoginAsInitial()
+        setTabbarAsInitial()
         window?.makeKeyAndVisible()
     }
     
     func setTabbarAsInitial() {
-//        window?.rootViewController = BaseTabBar()
+        window?.rootViewController = BaseTabbarController()
     }
     
     func setLoginAsInitial() {
