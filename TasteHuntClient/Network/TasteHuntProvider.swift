@@ -36,11 +36,13 @@ final class TasteHuntProvider {
             kitchens: kitchens,
             visits: visits)
         ) { result in
-        case .success(let responce):
-            guard let result = try? JSONDecoder().decode(NameExistingModel.self, from: responce.data) else { return }
-            success(result)
-        case .failure(let error):
-            failure(error.localizedDescription)
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode(GuestModel.self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
         }
     }
     

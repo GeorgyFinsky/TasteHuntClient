@@ -16,7 +16,7 @@ struct NameExistingModel: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        isExist = try container.decode(String.self, forKey: .isExist)
+        isExist = try container.decode(Bool.self, forKey: .isExist)
     }
     
 }
