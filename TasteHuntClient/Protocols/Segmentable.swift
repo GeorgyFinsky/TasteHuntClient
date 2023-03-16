@@ -11,3 +11,7 @@ protocol Segmentable {
     var title: String { get }
     var index: Int { get }
 }
+
+protocol SegmentDelegate: AnyObject {
+    func segmentDidChange(index: Int)
+}
