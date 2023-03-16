@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C4BB14429C36E9A00CB1C2F /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14329C36E9A00CB1C2F /* TabbarController.swift */; };
+		0C4BB14729C3734500CB1C2F /* CafeControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14629C3734500CB1C2F /* CafeControllers.swift */; };
 		0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */; };
 		0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */; };
 		0C9F2C9129BC9A04009C4723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8F29BC9A04009C4723 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0C4BB14329C36E9A00CB1C2F /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		0C4BB14629C3734500CB1C2F /* CafeControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeControllers.swift; sourceTree = "<group>"; };
 		0C9F2C8629BC9A04009C4723 /* TasteHuntClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteHuntClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = TabbarController;
 			sourceTree = "<group>";
 		};
+		0C4BB14529C372DC00CB1C2F /* CafeController */ = {
+			isa = PBXGroup;
+			children = (
+				0C4BB14629C3734500CB1C2F /* CafeControllers.swift */,
+			);
+			path = CafeController;
+			sourceTree = "<group>";
+		};
 		0C9F2C7D29BC9A04009C4723 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 				0C9F2CB029BCA5AB009C4723 /* LoginViewController */,
 				0C9F2CB329BCFC5A009C4723 /* RegistrationController */,
 				0C4BB14229C36E6800CB1C2F /* TabbarController */,
+				0C4BB14529C372DC00CB1C2F /* CafeController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -383,6 +394,7 @@
 				0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */,
 				0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */,
 				0CC62AC329C329DB00B13A5C /* KitchenTypeEnum.swift in Sources */,
+				0C4BB14729C3734500CB1C2F /* CafeControllers.swift in Sources */,
 				0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */,
 				0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */,
 			);
