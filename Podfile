@@ -10,5 +10,6 @@ target 'TasteHuntClient' do
 pod 'Moya'
 pod 'RealmSwift'
 pod 'GoogleMaps'
+pod 'Google-Maps-iOS-Utils'
 
 end
