@@ -265,12 +265,11 @@ extension LoginController {
     }
     
     @objc private func registrationButtonDidTap() {
-        let regVC = RegistrationController()
-        regVC.loginBlock = { user in
-            self.usernameField.text = user.username
-            self.passwordField.text = user.password
+        guard let regVC = ControllersList.registration.vc as? RegistrationController else { return }
+        regVC.loginBlock = { username in
+            self.usernameField.text = username
         }
-        self.push(ControllersList.registration.vc, animated: true)
+        self.push(regVC, animated: true)
     }
     
 }

@@ -100,16 +100,17 @@ final class RegistrationController: BaseController {
     // MARK: Propertes
     private let kitchens = KitchensType.allCases
     private var selectedKitchens = [IndexPath]()
+    private var selectedKitchensTitles = [String]()
     private var registrationViews = [UIView]()
     private var profileViewContent = [UITextField]()
     private var currentViewIndex = 0
-    private var user: GuestModel?
+    private var user: GuestPublicModel?
     private var isUsernameEnabled: Bool = false {
         didSet {
             usernameField.layer.borderColor = isUsernameEnabled ? UIColor.lightGray.cgColor : UIColor.red.cgColor
         }
     }
-    var loginBlock: ((GuestModel) -> ())?
+    var loginBlock: ((String) -> ())?
     
     // MARK: -
     // MARK: Lifecircle
@@ -168,6 +169,14 @@ extension RegistrationController {
     
     private func setupLayout() {
         self.navigationItem.titleView = titleLabel
+        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.backward")
+        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.backward")!.withTintColor(.purple),
+            style: .plain,
+            target: self,
+            action: #selector(backButtonDidTap(sender:))
+        )
         self.registrationViews = [profileView, kitchensSelectView]
         self.profileViewContent = [usernameField, passwordField]
         
@@ -263,6 +272,10 @@ extension RegistrationController {
 // MARK: Buttons Action
 extension RegistrationController {
     
+    @objc func backButtonDidTap(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated:true)
+    }
+    
     @objc private func nextButtonDidTap() {
         let animationDuration: TimeInterval = 0.5
         
@@ -289,8 +302,8 @@ extension RegistrationController {
         } else {
             addUserKitchens()
             self.popToRoot(animated: true)
-            guard let user else { return }
-            loginBlock?(user)
+            guard let login = user?.username else { return }
+            loginBlock?(login)
         }
     }
     
@@ -310,6 +323,21 @@ extension RegistrationController {
     }
     
     private func addUserKitchens() {
+        TasteHuntProvider().addKitchen(kitchen: prepereKitchensValueForDB()) { [weak self] result in
+            guard let self else { return }
+            self.user = result
+        } failure: { errorString in
+            print(errorString)
+        }
+    }
+    
+    private func prepereKitchensValueForDB() -> String {
+        var outputString: String = ""
+        
+        selectedKitchensTitles.forEach { title in
+            outputString += "\(title)|"
+        }
+        return outputString
     }
     
 }
@@ -373,7 +401,14 @@ extension RegistrationController {
 extension RegistrationController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedKitchens.append(indexPath)
+        let index = selectedKitchens.firstIndex(where: { $0 == indexPath })
+        if let index {
+            self.selectedKitchensTitles.remove(at: index)
+            self.selectedKitchens.remove(at: index)
+        } else {
+            self.selectedKitchensTitles.append(kitchens[indexPath.row].rawValue)
+            self.selectedKitchens.append(indexPath)
+        }
         collectionView.reloadData()
     }
     
