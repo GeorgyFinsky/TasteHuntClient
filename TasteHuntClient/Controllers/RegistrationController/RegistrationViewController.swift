@@ -54,7 +54,7 @@ final class RegistrationController: BaseController {
     
     private lazy var usernameField: UITextField = {
         let field = createField(.name)
-        field.placeholder = "Create You UserName"
+        field.placeholder = "Create You Username"
         return field
     }()
     
@@ -99,6 +99,7 @@ final class RegistrationController: BaseController {
     private var registrationViews = [UIView]()
     private var profileViewContent = [UITextField]()
     private var currentViewIndex = 0
+    private var userID: String?
     var loginBlock: ((GuestModel) -> ())?
     
     // MARK: -
@@ -255,6 +256,7 @@ extension RegistrationController {
     
     @objc private func nextButtonDidTap() {
         let animationDuration: TimeInterval = 0.5
+        registerUser()
         
         if currentViewIndex == 0 {
             currentViewIndex = 1
@@ -276,8 +278,29 @@ extension RegistrationController {
                 self.nextButton.setTitle("Register", for: .normal)
             }
         } else {
-            
+            addUserKitchens()
+            self.dismiss(animated: true)
         }
+    }
+    
+    private func registerUser() {
+        TasteHuntProvider().registerGuest(
+            id: UUID(),
+            username: usernameField.text!,
+            password: passwordField.text!,
+            profileImageURL: "",
+            kitchens: "",
+            visits: "") { [weak self] result in
+                guard let self else { return }
+                self.userID = result.id.uuidString
+                self.loginBlock?(result)
+            } failure: { errorString in
+                print(errorString)
+            }
+    }
+    
+    private func addUserKitchens() {
+        
     }
     
 }
@@ -331,6 +354,7 @@ extension RegistrationController {
 // MARK: -
 // MARK: UICollectionViewDelegate
 extension RegistrationController: UICollectionViewDelegate {
+    
     
     
 }
