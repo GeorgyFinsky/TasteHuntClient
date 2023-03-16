@@ -23,7 +23,6 @@
 		0C9F2CB729BD00EF009C4723 /* UITextFieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CB629BD00EF009C4723 /* UITextFieldExtention.swift */; };
 		0C9F2CB929BD03F3009C4723 /* UITextFieldTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CB829BD03F3009C4723 /* UITextFieldTypeEnum.swift */; };
 		0C9F2CC429BDFF8E009C4723 /* SelectKitchenCoollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CC329BDFF8E009C4723 /* SelectKitchenCoollectionViewCell.swift */; };
-		0C9F2CC729C07D03009C4723 /* KitchenSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CC629C07D03009C4723 /* KitchenSelectModel.swift */; };
 		0C9F2CF929C2B17A009C4723 /* TasteHuntProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CF829C2B17A009C4723 /* TasteHuntProvider.swift */; };
 		0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFA29C2B189009C4723 /* TasteHuntAPI.swift */; };
 		0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */; };
@@ -31,6 +30,7 @@
 		0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */; };
 		0CC62AC129C3115C00B13A5C /* AccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC62AC029C3115C00B13A5C /* AccessTokenModel.swift */; };
 		0CC62AC329C329DB00B13A5C /* KitchenTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC62AC229C329DB00B13A5C /* KitchenTypeEnum.swift */; };
+		0CFFA15729C34EC7007051B1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFA15629C34EC7007051B1 /* SDWebImage */; };
 		0F558DC8686DD02FC904EF7C /* Pods_TasteHuntClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216CF350FB8165ED285D87CF /* Pods_TasteHuntClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,6 @@
 		0C9F2CB629BD00EF009C4723 /* UITextFieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtention.swift; sourceTree = "<group>"; };
 		0C9F2CB829BD03F3009C4723 /* UITextFieldTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldTypeEnum.swift; sourceTree = "<group>"; };
 		0C9F2CC329BDFF8E009C4723 /* SelectKitchenCoollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectKitchenCoollectionViewCell.swift; sourceTree = "<group>"; };
-		0C9F2CC629C07D03009C4723 /* KitchenSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenSelectModel.swift; sourceTree = "<group>"; };
 		0C9F2CF829C2B17A009C4723 /* TasteHuntProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteHuntProvider.swift; sourceTree = "<group>"; };
 		0C9F2CFA29C2B189009C4723 /* TasteHuntAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteHuntAPI.swift; sourceTree = "<group>"; };
 		0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameExistingModel.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CFFA15729C34EC7007051B1 /* SDWebImage in Frameworks */,
 				0C9F2CA329BC9A89009C4723 /* SnapKit in Frameworks */,
 				0F558DC8686DD02FC904EF7C /* Pods_TasteHuntClient.framework in Frameworks */,
 			);
@@ -100,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				0C9F2CF629C2B161009C4723 /* Network */,
-				0C9F2CC529C07CBD009C4723 /* Models */,
 				0C9F2CAD29BCA514009C4723 /* Helpers */,
 				0C9F2CA429BC9B05009C4723 /* Enums */,
 				0C9F2CBE29BDFDFD009C4723 /* Cells */,
@@ -194,14 +193,6 @@
 			path = SelectKitchenCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		0C9F2CC529C07CBD009C4723 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0C9F2CC629C07D03009C4723 /* KitchenSelectModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		0C9F2CF629C2B161009C4723 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +251,7 @@
 			name = TasteHuntClient;
 			packageProductDependencies = (
 				0C9F2CA229BC9A89009C4723 /* SnapKit */,
+				0CFFA15629C34EC7007051B1 /* SDWebImage */,
 			);
 			productName = TasteHuntClient;
 			productReference = 0C9F2C8629BC9A04009C4723 /* TasteHuntClient.app */;
@@ -291,6 +283,7 @@
 			mainGroup = 0C9F2C7D29BC9A04009C4723;
 			packageReferences = (
 				0C9F2CA129BC9A89009C4723 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 0C9F2C8729BC9A04009C4723 /* Products */;
 			projectDirPath = "";
@@ -369,7 +362,6 @@
 				0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */,
 				0C9F2CB729BD00EF009C4723 /* UITextFieldExtention.swift in Sources */,
 				0C9F2CFF29C30CC2009C4723 /* GuestModel.swift in Sources */,
-				0C9F2CC729C07D03009C4723 /* KitchenSelectModel.swift in Sources */,
 				0C9F2CB929BD03F3009C4723 /* UITextFieldTypeEnum.swift in Sources */,
 				0C9F2CAF29BCA527009C4723 /* Environment.swift in Sources */,
 				0C9F2CB229BCA5DE009C4723 /* LoginViewController.swift in Sources */,
@@ -610,6 +602,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -617,6 +617,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0C9F2CA129BC9A89009C4723 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		0CFFA15629C34EC7007051B1 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
