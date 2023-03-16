@@ -114,7 +114,7 @@ extension TasteHuntAPI: TargetType {
     }
     
     var encoding: ParameterEncoding {
-        return JSONEncoding.prettyPrinted
+        return URLEncoding.default
     }
     
 }
