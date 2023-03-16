@@ -28,6 +28,7 @@
 		0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFA29C2B189009C4723 /* TasteHuntAPI.swift */; };
 		0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */; };
 		0C9F2CFF29C30CC2009C4723 /* GuestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFE29C30CC2009C4723 /* GuestModel.swift */; };
+		0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */; };
 		0CC62AC129C3115C00B13A5C /* AccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC62AC029C3115C00B13A5C /* AccessTokenModel.swift */; };
 		0CC62AC329C329DB00B13A5C /* KitchenTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC62AC229C329DB00B13A5C /* KitchenTypeEnum.swift */; };
 		0F558DC8686DD02FC904EF7C /* Pods_TasteHuntClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216CF350FB8165ED285D87CF /* Pods_TasteHuntClient.framework */; };
@@ -56,6 +57,7 @@
 		0C9F2CFA29C2B189009C4723 /* TasteHuntAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteHuntAPI.swift; sourceTree = "<group>"; };
 		0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameExistingModel.swift; sourceTree = "<group>"; };
 		0C9F2CFE29C30CC2009C4723 /* GuestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestModel.swift; sourceTree = "<group>"; };
+		0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestPublicModel.swift; sourceTree = "<group>"; };
 		0CC62AC029C3115C00B13A5C /* AccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenModel.swift; sourceTree = "<group>"; };
 		0CC62AC229C329DB00B13A5C /* KitchenTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTypeEnum.swift; sourceTree = "<group>"; };
 		216CF350FB8165ED285D87CF /* Pods_TasteHuntClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasteHuntClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +218,7 @@
 				0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */,
 				0C9F2CFE29C30CC2009C4723 /* GuestModel.swift */,
 				0CC62AC029C3115C00B13A5C /* AccessTokenModel.swift */,
+				0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				0C9F2CAA29BCA0EF009C4723 /* UIViewControllerExtention.swift in Sources */,
 				0C9F2CF929C2B17A009C4723 /* TasteHuntProvider.swift in Sources */,
 				0C9F2CB529BCFC7B009C4723 /* RegistrationViewController.swift in Sources */,
+				0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */,
 				0C9F2CB729BD00EF009C4723 /* UITextFieldExtention.swift in Sources */,
 				0C9F2CFF29C30CC2009C4723 /* GuestModel.swift in Sources */,
 				0C9F2CC729C07D03009C4723 /* KitchenSelectModel.swift in Sources */,
