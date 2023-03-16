@@ -96,13 +96,19 @@ final class RegistrationController: BaseController {
     private lazy var profileView = createView()
     private lazy var kitchensSelectView = createView()
     
+    // MARK: -
+    // MARK: Propertes
     private let kitchens = KitchensType.allCases
     private var selectedKitchens = [IndexPath]()
     private var registrationViews = [UIView]()
     private var profileViewContent = [UITextField]()
     private var currentViewIndex = 0
-    private var userID: String?
-    private var isUsernameEnabled: Bool = false
+    private var user: GuestModel?
+    private var isUsernameEnabled: Bool = false {
+        didSet {
+            usernameField.layer.borderColor = isUsernameEnabled ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }
+    }
     var loginBlock: ((GuestModel) -> ())?
     
     // MARK: -
@@ -259,9 +265,9 @@ extension RegistrationController {
     
     @objc private func nextButtonDidTap() {
         let animationDuration: TimeInterval = 0.5
-        registerUser()
         
         if currentViewIndex == 0 {
+            registerUser()
             currentViewIndex = 1
             updateProgressView()
             
@@ -282,7 +288,9 @@ extension RegistrationController {
             }
         } else {
             addUserKitchens()
-            self.dismiss(animated: true)
+            self.popToRoot(animated: true)
+            guard let user else { return }
+            loginBlock?(user)
         }
     }
     
@@ -295,8 +303,7 @@ extension RegistrationController {
             kitchens: "",
             visits: "") { [weak self] result in
                 guard let self else { return }
-                self.userID = result.id.uuidString
-                self.loginBlock?(result)
+                self.user = result
             } failure: { errorString in
                 print(errorString)
             }
@@ -348,8 +355,6 @@ extension RegistrationController {
             default: break
         }
         sender.layer.borderColor = sender.isValid(validationType) ? UIColor.lightGray.cgColor : UIColor.red.cgColor
-        sender.layer.borderColor = isUsernameEnabled ? UIColor.lightGray.cgColor : UIColor.red.cgColor
-        
         isNextButtonEnabled()
     }
     
