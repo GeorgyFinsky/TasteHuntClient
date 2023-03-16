@@ -15,7 +15,7 @@ enum KitchensType: String, CaseIterable {
     case french
     case vegetarian
     
-//    var imagesURl: String {
+//    var imageURl: String {
 //        switch self {
 //            case .asian:
 //                return (URL(string: ""))

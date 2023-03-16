@@ -96,7 +96,8 @@ final class RegistrationController: BaseController {
     private lazy var profileView = createView()
     private lazy var kitchensSelectView = createView()
     
-    private let kitchens = [KitchensType.allCases.rawValue]
+    private let kitchens = KitchensType.allCases
+    private var selectedKitchens = [IndexPath]()
     private var registrationViews = [UIView]()
     private var profileViewContent = [UITextField]()
     private var currentViewIndex = 0
@@ -366,7 +367,10 @@ extension RegistrationController {
 // MARK: UICollectionViewDelegate
 extension RegistrationController: UICollectionViewDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedKitchens.append(indexPath)
+        collectionView.reloadData()
+    }
     
 }
 
@@ -375,7 +379,7 @@ extension RegistrationController: UICollectionViewDelegate {
 extension RegistrationController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return kitchens.count
     }
     
     
@@ -384,7 +388,9 @@ extension RegistrationController: UICollectionViewDataSource {
             withReuseIdentifier: SelectKitchenCoollectionViewCell.id,
             for: indexPath
         ) as! SelectKitchenCoollectionViewCell
+        selectedKitchens.forEach { $0 == indexPath ? cell.isSelected = true : nil }
         
+        cell.set(value: kitchens[indexPath.row])
         return cell
     }
     
