@@ -27,7 +27,7 @@ final class TasteHuntProvider {
         }
     }
     
-    func registerGuest(id: UUID, username: String, password: String, profileImageURL: String, kitchens: String, visits: String, success: @escaping ObjectResponce<GuestModel>, failure: @escaping Error) {
+    func registerGuest(id: UUID, username: String, password: String, profileImageURL: String, kitchens: String, visits: String, success: @escaping ObjectResponce<GuestPublicModel>, failure: @escaping Error) {
         provider.request(.registrateGuest(
             id: id,
             username: username,
@@ -38,7 +38,7 @@ final class TasteHuntProvider {
         ) { result in
             switch result {
                 case .success(let responce):
-                    guard let result = try? JSONDecoder().decode(GuestModel.self, from: responce.data) else { return }
+                    guard let result = try? JSONDecoder().decode(GuestPublicModel.self, from: responce.data) else { return }
                     success(result)
                 case .failure(let error):
                     failure(error.localizedDescription)
