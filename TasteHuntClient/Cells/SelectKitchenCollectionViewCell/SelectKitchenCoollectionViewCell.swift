@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+//import SDWebImage
 
 final class SelectKitchenCoollectionViewCell: UICollectionViewCell {
     static let id = String(describing: SelectKitchenCoollectionViewCell.self)
@@ -34,10 +35,11 @@ final class SelectKitchenCoollectionViewCell: UICollectionViewCell {
         self.contentView.layer.borderWidth = 2
         self.contentView.layer.borderColor = UIColor.purple.cgColor
         self.contentView.layer.cornerRadius = 5
+        self.backgroundColor = isSelected ? UIColor.purple : UIColor.systemGray5
     }
     
-    func set(value: KitchenSelectModel) {
-        
+    func set(value: KitchensType) {
+//        self.imageView.sd_setImage(with: URL(string: KitchensType.imageURl))
     }
     
     private func setupLayout() {

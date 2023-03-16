@@ -54,7 +54,7 @@ final class RegistrationController: BaseController {
     
     private lazy var usernameField: UITextField = {
         let field = createField(.name)
-        field.placeholder = "Create You UserName"
+        field.placeholder = "Create You Username"
         return field
     }()
     
@@ -96,9 +96,13 @@ final class RegistrationController: BaseController {
     private lazy var profileView = createView()
     private lazy var kitchensSelectView = createView()
     
+    private let kitchens = KitchensType.allCases
+    private var selectedKitchens = [IndexPath]()
     private var registrationViews = [UIView]()
     private var profileViewContent = [UITextField]()
     private var currentViewIndex = 0
+    private var userID: String?
+    private var isUsernameEnabled: Bool = false
     var loginBlock: ((GuestModel) -> ())?
     
     // MARK: -
@@ -255,6 +259,7 @@ extension RegistrationController {
     
     @objc private func nextButtonDidTap() {
         let animationDuration: TimeInterval = 0.5
+        registerUser()
         
         if currentViewIndex == 0 {
             currentViewIndex = 1
@@ -276,8 +281,28 @@ extension RegistrationController {
                 self.nextButton.setTitle("Register", for: .normal)
             }
         } else {
-            
+            addUserKitchens()
+            self.dismiss(animated: true)
         }
+    }
+    
+    private func registerUser() {
+        TasteHuntProvider().registerGuest(
+            id: UUID(),
+            username: usernameField.text!,
+            password: passwordField.text!,
+            profileImageURL: "",
+            kitchens: "",
+            visits: "") { [weak self] result in
+                guard let self else { return }
+                self.userID = result.id.uuidString
+                self.loginBlock?(result)
+            } failure: { errorString in
+                print(errorString)
+            }
+    }
+    
+    private func addUserKitchens() {
     }
     
 }
@@ -309,17 +334,27 @@ extension RegistrationController {
         switch sender {
             case usernameField:
                 validationType = .name
+                if let text = sender.text {
+                    TasteHuntProvider().isUsernameExist(username: text) { [weak self] result in
+                        guard let self else { return }
+                        
+                        self.isUsernameEnabled = result.isExist ? false : true
+                    } failure: { errorString in
+                        print(errorString)
+                    }
+                }
             case passwordField:
                 validationType = .password
             default: break
         }
-        
         sender.layer.borderColor = sender.isValid(validationType) ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        sender.layer.borderColor = isUsernameEnabled ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        
         isNextButtonEnabled()
     }
     
     private func isNextButtonEnabled() {
-        if usernameField.isValid(.name), passwordField.isValid(.password) {
+        if usernameField.isValid(.name), passwordField.isValid(.password), isUsernameEnabled {
             nextButton.isEnabled = true
         } else {
             nextButton.isEnabled = false
@@ -332,6 +367,10 @@ extension RegistrationController {
 // MARK: UICollectionViewDelegate
 extension RegistrationController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedKitchens.append(indexPath)
+        collectionView.reloadData()
+    }
     
 }
 
@@ -340,7 +379,7 @@ extension RegistrationController: UICollectionViewDelegate {
 extension RegistrationController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return kitchens.count
     }
     
     
@@ -349,7 +388,9 @@ extension RegistrationController: UICollectionViewDataSource {
             withReuseIdentifier: SelectKitchenCoollectionViewCell.id,
             for: indexPath
         ) as! SelectKitchenCoollectionViewCell
+        selectedKitchens.forEach { $0 == indexPath ? cell.isSelected = true : nil }
         
+        cell.set(value: kitchens[indexPath.row])
         return cell
     }
     
