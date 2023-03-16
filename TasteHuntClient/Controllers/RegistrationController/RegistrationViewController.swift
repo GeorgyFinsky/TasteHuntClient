@@ -96,10 +96,12 @@ final class RegistrationController: BaseController {
     private lazy var profileView = createView()
     private lazy var kitchensSelectView = createView()
     
+    private let kitchens = [KitchensType.allCases.rawValue]
     private var registrationViews = [UIView]()
     private var profileViewContent = [UITextField]()
     private var currentViewIndex = 0
     private var userID: String?
+    private var isUsernameEnabled: Bool = false
     var loginBlock: ((GuestModel) -> ())?
     
     // MARK: -
@@ -300,7 +302,6 @@ extension RegistrationController {
     }
     
     private func addUserKitchens() {
-        
     }
     
 }
@@ -332,17 +333,27 @@ extension RegistrationController {
         switch sender {
             case usernameField:
                 validationType = .name
+                if let text = sender.text {
+                    TasteHuntProvider().isUsernameExist(username: text) { [weak self] result in
+                        guard let self else { return }
+                        
+                        self.isUsernameEnabled = result.isExist ? false : true
+                    } failure: { errorString in
+                        print(errorString)
+                    }
+                }
             case passwordField:
                 validationType = .password
             default: break
         }
-        
         sender.layer.borderColor = sender.isValid(validationType) ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        sender.layer.borderColor = isUsernameEnabled ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        
         isNextButtonEnabled()
     }
     
     private func isNextButtonEnabled() {
-        if usernameField.isValid(.name), passwordField.isValid(.password) {
+        if usernameField.isValid(.name), passwordField.isValid(.password), isUsernameEnabled {
             nextButton.isEnabled = true
         } else {
             nextButton.isEnabled = false
