@@ -265,6 +265,7 @@
 				0C9F2C8329BC9A04009C4723 /* Frameworks */,
 				0C9F2C8429BC9A04009C4723 /* Resources */,
 				60EB282664A2C1D2FE4BA4CE /* [CP] Embed Pods Frameworks */,
+				054E6A5C7DEA740CAB8410EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,7 +306,7 @@
 			mainGroup = 0C9F2C7D29BC9A04009C4723;
 			packageReferences = (
 				0C9F2CA129BC9A89009C4723 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
 			);
 			productRefGroup = 0C9F2C8729BC9A04009C4723 /* Products */;
 			projectDirPath = "";
@@ -330,6 +331,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		054E6A5C7DEA740CAB8410EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TasteHuntClient/Pods-TasteHuntClient-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TasteHuntClient/Pods-TasteHuntClient-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TasteHuntClient/Pods-TasteHuntClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		60EB282664A2C1D2FE4BA4CE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,7 +644,7 @@
 				minimumVersion = 5.6.0;
 			};
 		};
-		0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -644,7 +662,7 @@
 		};
 		0CFFA15629C34EC7007051B1 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 0CFFA15529C34EC7007051B1 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
 			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */

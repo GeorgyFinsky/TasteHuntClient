@@ -8,5 +8,7 @@ target 'TasteHuntClient' do
   # Pods for TasteHuntClient
 
 pod 'Moya'
+pod 'RealmSwift'
+pod 'GoogleMaps'
 
 end
