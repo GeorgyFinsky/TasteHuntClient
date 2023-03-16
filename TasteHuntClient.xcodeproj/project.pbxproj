@@ -26,6 +26,7 @@
 		0C9F2CC729C07D03009C4723 /* KitchenSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CC629C07D03009C4723 /* KitchenSelectModel.swift */; };
 		0C9F2CF929C2B17A009C4723 /* TasteHuntProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CF829C2B17A009C4723 /* TasteHuntProvider.swift */; };
 		0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFA29C2B189009C4723 /* TasteHuntAPI.swift */; };
+		0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */; };
 		0F558DC8686DD02FC904EF7C /* Pods_TasteHuntClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216CF350FB8165ED285D87CF /* Pods_TasteHuntClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		0C9F2CC629C07D03009C4723 /* KitchenSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenSelectModel.swift; sourceTree = "<group>"; };
 		0C9F2CF829C2B17A009C4723 /* TasteHuntProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteHuntProvider.swift; sourceTree = "<group>"; };
 		0C9F2CFA29C2B189009C4723 /* TasteHuntAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteHuntAPI.swift; sourceTree = "<group>"; };
+		0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameExistingModel.swift; sourceTree = "<group>"; };
 		216CF350FB8165ED285D87CF /* Pods_TasteHuntClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasteHuntClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7893E71891A1F6B6C84A13E /* Pods-TasteHuntClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasteHuntClient.release.xcconfig"; path = "Target Support Files/Pods-TasteHuntClient/Pods-TasteHuntClient.release.xcconfig"; sourceTree = "<group>"; };
 		E57B60CDB7BB9FA14747261C /* Pods-TasteHuntClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasteHuntClient.debug.xcconfig"; path = "Target Support Files/Pods-TasteHuntClient/Pods-TasteHuntClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		0C9F2CF729C2B169009C4723 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */,
 				0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */,
 				0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */,
+				0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
