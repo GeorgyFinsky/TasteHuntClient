@@ -52,13 +52,7 @@ final class RegistrationController: BaseController {
         return button
     }()
     
-    private lazy var phoneField: UITextField = {
-        let field = createField(.phone)
-        field.placeholder = "Phone Number"
-        return field
-    }()
-    
-    private lazy var userNameField: UITextField = {
+    private lazy var usernameField: UITextField = {
         let field = createField(.name)
         field.placeholder = "Create You UserName"
         return field
@@ -105,6 +99,7 @@ final class RegistrationController: BaseController {
     private var registrationViews = [UIView]()
     private var profileViewContent = [UITextField]()
     private var currentViewIndex = 0
+    var loginBlock: ((GuestModel) -> ())?
     
     // MARK: -
     // MARK: Lifecircle
@@ -164,7 +159,7 @@ extension RegistrationController {
     private func setupLayout() {
         self.navigationItem.titleView = titleLabel
         self.registrationViews = [profileView, kitchensSelectView]
-        self.profileViewContent = [phoneField, userNameField, passwordField]
+        self.profileViewContent = [usernameField, passwordField]
         
         self.contentView.addSubview(progressView)
         self.contentView.addSubview(kitchensSelectView)
@@ -184,7 +179,11 @@ extension RegistrationController {
             make.top.leading.trailing.equalToSuperview().inset(progressViewEdges)
         }
         
-        makeNextButtonConstraints()
+        let nextButtonEdges = UIEdgeInsets(top: 20, left: 30, bottom: 20, right: 30)
+        nextButton.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.leading.trailing.bottom.equalToSuperview().inset(nextButtonEdges)
+        }
         
         self.registrationViews.forEach { view in
             view.snp.makeConstraints { make in
@@ -217,7 +216,7 @@ extension RegistrationController {
                 if let previousTextField {
                     make.top.equalTo(previousTextField.snp.bottom).offset(fieldEdges.top)
                 } else {
-                    make.top.equalToSuperview().offset(fieldEdges.top)
+                    make.top.equalToSuperview().offset(50)
                 }
                 make.leading.trailing.equalToSuperview().inset(fieldEdges)
                 make.height.equalTo(40)
@@ -308,10 +307,8 @@ extension RegistrationController {
         var validationType: TextFieldType = .none
         
         switch sender {
-            case userNameField:
+            case usernameField:
                 validationType = .name
-            case phoneField:
-                validationType = .phone
             case passwordField:
                 validationType = .password
             default: break
@@ -322,7 +319,7 @@ extension RegistrationController {
     }
     
     private func isNextButtonEnabled() {
-        if phoneField.isValid(.phone), userNameField.isValid(.name), passwordField.isValid(.password) {
+        if usernameField.isValid(.name), passwordField.isValid(.password) {
             nextButton.isEnabled = true
         } else {
             nextButton.isEnabled = false

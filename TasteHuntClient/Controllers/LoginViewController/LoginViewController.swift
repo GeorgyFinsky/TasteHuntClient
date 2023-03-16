@@ -42,6 +42,11 @@ final class LoginController: BaseController {
     private lazy var usernameField: UITextField = {
         let field = createField(.name)
         field.placeholder = "Username"
+        field.addTarget(
+            self,
+            action: #selector(usernameFieldDidEndEdditing),
+            for: .editingDidEnd
+        )
         return field
     }()
     
@@ -231,8 +236,17 @@ extension LoginController {
         isLoginButtonEnabled()
     }
     
+    @objc private func usernameFieldDidEndEdditing(sender: UITextField) {
+        sender.layer.borderColor = sender.isValid(.name) ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        isLoginButtonEnabled()
+    }
+    
     private func isLoginButtonEnabled() {
-        loginButton.isEnabled = passwordField.isValid(.password)
+        if passwordField.isValid(.password), usernameField.isValid(.name) {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+        }
     }
     
 }
@@ -242,7 +256,13 @@ extension LoginController {
 extension LoginController {
     
     @objc private func loginButtonDidTap() {
-        
+        TasteHuntProvider().loginUser(username: usernameField.text!, password: passwordField.text!) { [weak self] result in
+            guard let self else { return }
+            UserDefaults.standard.set(result.token, forKey: "accessToken")
+            Environment.sceneDelegate?.setTabbarAsInitial()
+        } failure: { errorString in
+            print(errorString)
+        }
     }
     
     @objc private func registrationButtonDidTap() {
