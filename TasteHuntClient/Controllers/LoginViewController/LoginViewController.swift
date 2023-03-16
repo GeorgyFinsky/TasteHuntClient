@@ -256,7 +256,13 @@ extension LoginController {
 extension LoginController {
     
     @objc private func loginButtonDidTap() {
-        
+        TasteHuntProvider().loginUser(username: usernameField.text!, password: passwordField.text!) { [weak self] result in
+            guard let self else { return }
+            UserDefaults.standard.set(result.token, forKey: "accessToken")
+            Environment.sceneDelegate?.setTabbarAsInitial()
+        } failure: { errorString in
+            print(errorString)
+        }
     }
     
     @objc private func registrationButtonDidTap() {
