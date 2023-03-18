@@ -25,26 +25,24 @@ final class CafeController: BaseController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Authorization"
+        label.text = "Cafes"
         label.textColor = .white
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 32)
         return label
     }()
     
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let activityView = UIActivityIndicatorView()
-        activityView.style = .large
-        return activityView
+    private lazy var segmentControll: UniversalSegmenControl = {
+        let segment = UniversalSegmenControl(
+            elements: CafeControllerDisplayType.allCases,
+            delegate: self
+        )
+        return segment
     }()
     
-    private lazy var reloadDataButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(
-            UIImage(systemName: "goforward"),
-            for: .normal
-        )
-        return button
+    private lazy var mapView: GMSMapView = {
+        let map = GMSMapView()
+        return map
     }()
     
     // MARK: -
@@ -65,11 +63,37 @@ extension CafeController {
         self.navigationController?.isNavigationBarHidden = true
         self.view.addSubview(topContainerView)
         self.topContainerView.addSubview(titleLabel)
-        self.topContainerView.addSubview(reloadDataButton)
-        self.topContainerView.addSubview(activityIndicator)
+        self.topContainerView.addSubview(segmentControll)
+        
     }
     
     private func makeConstraints() {
+        let segmentControllEdges = UIEdgeInsets(top: 16, left: 20, bottom: 20, right: 20)
+        
+        topContainerView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(segmentControll.snp.bottom).offset(segmentControllEdges.bottom)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentView).inset(10)
+            make.centerX.equalToSuperview()
+        }
+        
+        segmentControll.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(segmentControllEdges.top)
+            make.leading.trailing.equalToSuperview().inset(segmentControllEdges)
+        }
+    }
+    
+}
+
+// MARK: -
+// MARK: SegmentDelegate
+extension CafeController: SegmentDelegate {
+    
+    func segmentDidChange(index: Int) {
+        guard let element = CafeControllerDisplayType(rawValue: index) else { return }
         
     }
     

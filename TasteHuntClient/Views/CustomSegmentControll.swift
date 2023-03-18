@@ -12,42 +12,31 @@ class UniversalSegmenControl: UIView {
     
     private lazy var mainContentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
-    private lazy var underlineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .cyan
+        view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 10
         return view
     }()
     
     private lazy var selectionView: UIView = {
         let view = UIView()
         view.backgroundColor = selectionViewBackgroundColor
-        
+        view.layer.cornerRadius = 10
         return view
     }()
     
-    public var selectionViewBackgroundColor: UIColor = .blue.withAlphaComponent(0.5) {
+    public var selectionViewBackgroundColor: UIColor = .white.withAlphaComponent(0.5) {
         willSet {
             selectionView.backgroundColor = newValue
         }
     }
     
-    public var underlineViewColor: UIColor = .cyan {
-        willSet {
-            underlineView.backgroundColor = newValue
-        }
-    }
-    
-    public var activeLabelTextColor: UIColor = .white {
+    public var activeLabelTextColor: UIColor = .purple {
         didSet {
             self.setActiveState()
         }
     }
     
-    public var inactiveLabelTextColor: UIColor = .black {
+    public var inactiveLabelTextColor: UIColor = .white {
         didSet {
             self.setInactiveState()
         }
@@ -91,9 +80,7 @@ class UniversalSegmenControl: UIView {
     
     private func setupLayout() {
         self.addSubview(mainContentView)
-        mainContentView.addSubview(underlineView)
         mainContentView.addSubview(selectionView)
-        mainContentView.bringSubviewToFront(underlineView)
     }
     
     private func makeConstraints() {
@@ -106,13 +93,6 @@ class UniversalSegmenControl: UIView {
         
         let itemWidth = mainContentView.frame.width / CGFloat(segmentItems.count)
         let selectionPosition = itemWidth * CGFloat(selectedElement.index)
-        
-        underlineView.snp.remakeConstraints { make in
-            make.height.equalTo(3)
-            make.width.equalTo(itemWidth)
-            make.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(selectionPosition)
-        }
         
         selectionView.snp.remakeConstraints { make in
             make.width.equalTo(itemWidth)
@@ -160,12 +140,6 @@ class UniversalSegmenControl: UIView {
         guard let selectedElement else { return }
         
         let itemWidth = mainContentView.frame.width / CGFloat(segmentItems.count)
-        
-        underlineView.snp.updateConstraints { make in
-            make.leading.equalToSuperview().offset(
-                itemWidth * CGFloat(selectedElement.index)
-            )
-        }
         
         selectionView.snp.updateConstraints { make in
             make.leading.equalToSuperview().offset(

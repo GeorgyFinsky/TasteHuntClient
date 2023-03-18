@@ -16,6 +16,7 @@
 		0C4BB15629C37B2900CB1C2F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15529C37B2900CB1C2F /* SettingsController.swift */; };
 		0C4BB15929C37D9300CB1C2F /* CustomSegmentControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15829C37D9300CB1C2F /* CustomSegmentControll.swift */; };
 		0C4BB15C29C37DB200CB1C2F /* Segmentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */; };
+		0C4BB15E29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */; };
 		0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */; };
 		0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */; };
 		0C9F2C9129BC9A04009C4723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8F29BC9A04009C4723 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		0C4BB15529C37B2900CB1C2F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		0C4BB15829C37D9300CB1C2F /* CustomSegmentControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControll.swift; sourceTree = "<group>"; };
 		0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segmentable.swift; sourceTree = "<group>"; };
+		0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeControllerDisplayTypeEnum.swift; sourceTree = "<group>"; };
 		0C9F2C8629BC9A04009C4723 /* TasteHuntClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteHuntClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				0C9F2CAB29BCA13D009C4723 /* ControllersListEnum.swift */,
 				0C9F2CB829BD03F3009C4723 /* UITextFieldTypeEnum.swift */,
 				0CC62AC229C329DB00B13A5C /* KitchenTypeEnum.swift */,
+				0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				0C4BB15229C37B0400CB1C2F /* CreateVisitController.swift in Sources */,
 				0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */,
 				0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */,
+				0C4BB15E29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
