@@ -17,6 +17,7 @@
 		0C4BB15929C37D9300CB1C2F /* CustomSegmentControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15829C37D9300CB1C2F /* CustomSegmentControll.swift */; };
 		0C4BB15C29C37DB200CB1C2F /* Segmentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */; };
 		0C4BB15E29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */; };
+		0C4BB16129C6356500CB1C2F /* CafeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB16029C6356500CB1C2F /* CafeModel.swift */; };
 		0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */; };
 		0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */; };
 		0C9F2C9129BC9A04009C4723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8F29BC9A04009C4723 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		0C4BB15829C37D9300CB1C2F /* CustomSegmentControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControll.swift; sourceTree = "<group>"; };
 		0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segmentable.swift; sourceTree = "<group>"; };
 		0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeControllerDisplayTypeEnum.swift; sourceTree = "<group>"; };
+		0C4BB16029C6356500CB1C2F /* CafeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeModel.swift; sourceTree = "<group>"; };
 		0C9F2C8629BC9A04009C4723 /* TasteHuntClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteHuntClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				0C9F2CFE29C30CC2009C4723 /* GuestModel.swift */,
 				0CC62AC029C3115C00B13A5C /* AccessTokenModel.swift */,
 				0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */,
+				0C4BB16029C6356500CB1C2F /* CafeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				0C9F2CA729BC9B2A009C4723 /* ViewBackgroundColorEnum.swift in Sources */,
 				0C9F2CAA29BCA0EF009C4723 /* UIViewControllerExtention.swift in Sources */,
 				0C4BB14E29C37AE400CB1C2F /* VisitsController.swift in Sources */,
+				0C4BB16129C6356500CB1C2F /* CafeModel.swift in Sources */,
 				0C9F2CF929C2B17A009C4723 /* TasteHuntProvider.swift in Sources */,
 				0C9F2CB529BCFC7B009C4723 /* RegistrationViewController.swift in Sources */,
 				0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */,
