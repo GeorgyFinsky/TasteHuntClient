@@ -32,7 +32,7 @@ final class BaseTabbarController: UITabBarController {
         self.viewControllers = [visitsVC, cafesVC, settingsVC]
         visitsVC.tabBarItem = UITabBarItem(
             title: "Visits",
-            image: UIImage(systemName: "map"),
+            image: UIImage(systemName: "list.bullet"),
             tag: 0
         )
         cafesVC.tabBarItem = UITabBarItem(
