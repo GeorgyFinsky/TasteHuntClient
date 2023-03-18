@@ -170,6 +170,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		0C4BB15F29C631C400CB1C2F /* CafeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CafeTableViewCell;
+			sourceTree = "<group>";
+		};
 		0C9F2C7D29BC9A04009C4723 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +289,7 @@
 		0C9F2CBE29BDFDFD009C4723 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0C4BB15F29C631C400CB1C2F /* CafeTableViewCell */,
 				0C9F2CC229BDFF69009C4723 /* SelectKitchenCollectionViewCell */,
 			);
 			path = Cells;

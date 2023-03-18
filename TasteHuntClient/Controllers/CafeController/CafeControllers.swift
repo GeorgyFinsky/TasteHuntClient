@@ -45,12 +45,26 @@ final class CafeController: BaseController {
         return map
     }()
     
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.backgroundColor = .clear
+        table.separatorColor = .purple
+        table.dataSource = self
+        table.delegate = self
+        return table
+    }()
+    
     // MARK: -
     // MARK: Lifecircle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
         makeConstraints()
+        registerCell()
+    }
+    
+    private func registerCell() {
+        
     }
     
 }
@@ -62,6 +76,7 @@ extension CafeController {
     private func setupLayout() {
         self.navigationController?.isNavigationBarHidden = true
         self.view.addSubview(mapView)
+        self.view.addSubview(tableView)
         self.view.addSubview(topContainerView)
         self.topContainerView.addSubview(titleLabel)
         self.topContainerView.addSubview(segmentControll)
@@ -81,6 +96,12 @@ extension CafeController {
             make.leading.trailing.bottom.equalToSuperview()
         }
         
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(topContainerView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(contentView.snp.bottom)
+        }
+        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView).inset(10)
             make.centerX.equalToSuperview()
@@ -95,16 +116,36 @@ extension CafeController {
 }
 
 // MARK: -
+// MARK: UITableViewDelegate
+extension CafeController: UITableViewDelegate {
+    
+}
+
+// MARK: -
+// MARK: UITableViewDataSource
+extension CafeController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+}
+
+// MARK: -
 // MARK: SegmentDelegate
 extension CafeController: SegmentDelegate {
     
     func segmentDidChange(index: Int) {
         if index == 0 {
             mapView.alpha = 1
-           // tableView.alpha = 0
+            tableView.alpha = 0
         } else {
             mapView.alpha = 0
-           // tableView.alpha = 1
+            tableView.alpha = 1
         }
     }
     
