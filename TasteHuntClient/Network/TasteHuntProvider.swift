@@ -73,5 +73,17 @@ final class TasteHuntProvider {
         }
     }
     
+    func getAllCafes(success: @escaping ArrayResponce<CafeModel>, failure: @escaping Error) {
+        provider.request(.getAllCafes) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode([CafeModel].self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
+    
     
 }
