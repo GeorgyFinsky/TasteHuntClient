@@ -26,6 +26,7 @@ final class CafeController: BaseController {
         fridayWorkTime: "12.00-23.00",
         saturdayWorkTime: "12.00-23.00",
         sundayWorkTime: "12.00-23.00")
+    
     // MARK: -
     // MARK: UIObjects
     private lazy var topContainerView: UIView = {
@@ -75,9 +76,9 @@ final class CafeController: BaseController {
     private var cafes = [CafeInAppModel]() {
         didSet {
             clusterManager.clearItems()
-            getNearestCafe()
             cafes.forEach({ self.clusterManager.add(CafeMarker(cafe: $0)) })
             clusterManager.cluster()
+            getNearestCafe()
             tableView.reloadData()
         }
     }
@@ -92,10 +93,10 @@ final class CafeController: BaseController {
         setupLayout()
         makeConstraints()
         registerCell()
-        getData()
         setupCluster()
+        getData()
         
-        cafes = [c1, c1, c1]
+        cafes = [c1]
     }
     
     private func registerCell() {
@@ -217,7 +218,7 @@ extension CafeController {
         cafes.forEach { cafe in
             let distance = userLocation.distance(from: cafe.coordinates)
             
-            if distance < nearestCafeDistanse?.1 ?? 1000000 {
+            if distance < nearestCafeDistanse?.1 ?? 0.0 {
                 nearestCafeDistanse = (cafe, distance)
             }
         }
@@ -284,6 +285,10 @@ extension CafeController: GMUClusterRendererDelegate {
 // MARK: -
 // MARK: UITableViewDelegate
 extension CafeController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
     
 }
 
