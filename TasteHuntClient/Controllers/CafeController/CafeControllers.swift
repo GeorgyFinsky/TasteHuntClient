@@ -61,6 +61,7 @@ extension CafeController {
     
     private func setupLayout() {
         self.navigationController?.isNavigationBarHidden = true
+        self.view.addSubview(mapView)
         self.view.addSubview(topContainerView)
         self.topContainerView.addSubview(titleLabel)
         self.topContainerView.addSubview(segmentControll)
@@ -73,6 +74,11 @@ extension CafeController {
         topContainerView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.bottom.equalTo(segmentControll.snp.bottom).offset(segmentControllEdges.bottom)
+        }
+        
+        mapView.snp.makeConstraints { make in
+            make.top.equalTo(topContainerView.snp.bottom).inset(25)
+            make.leading.trailing.bottom.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -93,8 +99,13 @@ extension CafeController {
 extension CafeController: SegmentDelegate {
     
     func segmentDidChange(index: Int) {
-        guard let element = CafeControllerDisplayType(rawValue: index) else { return }
-        
+        if index == 0 {
+            mapView.alpha = 1
+           // tableView.alpha = 0
+        } else {
+            mapView.alpha = 0
+           // tableView.alpha = 1
+        }
     }
     
 }
