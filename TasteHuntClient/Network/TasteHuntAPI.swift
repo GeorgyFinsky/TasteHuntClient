@@ -25,6 +25,7 @@ enum TasteHuntAPI {
         password: String
     )
     case getAllUsers
+    case getAllCafes
 }
 
 extension TasteHuntAPI: TargetType {
@@ -47,12 +48,14 @@ extension TasteHuntAPI: TargetType {
                 return "users/login"
             case .getAllUsers:
                 return "users"
+            case .getAllCafes:
+                return "cafes"
         }
     }
     
     var method: Moya.Method {
         switch self {
-            case .isUsernameExist, .login, .getAllUsers:
+            case .isUsernameExist, .login, .getAllUsers, .getAllCafes:
                 return .get
             case .registrateGuest:
                 return .post
@@ -109,6 +112,7 @@ extension TasteHuntAPI: TargetType {
                 params["username"] = username
                 params["password"] = password
             case .getAllUsers: return nil
+            case .getAllCafes: return nil
         }
         return params
     }
