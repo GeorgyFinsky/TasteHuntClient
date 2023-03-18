@@ -14,7 +14,7 @@ enum CafeControllerDisplayType: Int, Segmentable, CaseIterable {
     var title: String {
         switch self {
             case .map: return "Map"
-            case .table: return "Table"
+            case .table: return "List"
         }
     }
     
