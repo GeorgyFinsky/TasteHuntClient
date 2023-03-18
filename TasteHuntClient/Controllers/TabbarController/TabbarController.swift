@@ -18,7 +18,7 @@ final class BaseTabbarController: UITabBarController {
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.view.bounds
         
-        self.tabBar.tintColor = .purple
+        self.tabBar.tintColor = .white
         self.tabBar.backgroundColor = .clear
         self.tabBar.addSubview(blurView)
         self.tabBar.sendSubviewToBack(blurView)
