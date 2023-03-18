@@ -18,6 +18,8 @@
 		0C4BB15C29C37DB200CB1C2F /* Segmentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */; };
 		0C4BB15E29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */; };
 		0C4BB16129C6356500CB1C2F /* CafeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB16029C6356500CB1C2F /* CafeModel.swift */; };
+		0C4BB16329C6467300CB1C2F /* UserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB16229C6467300CB1C2F /* UserTableCell.swift */; };
+		0C4BB16529C64A9200CB1C2F /* UserTableCellTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB16429C64A9200CB1C2F /* UserTableCellTypeEnum.swift */; };
 		0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */; };
 		0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */; };
 		0C9F2C9129BC9A04009C4723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F2C8F29BC9A04009C4723 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		0C4BB15B29C37DB200CB1C2F /* Segmentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segmentable.swift; sourceTree = "<group>"; };
 		0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeControllerDisplayTypeEnum.swift; sourceTree = "<group>"; };
 		0C4BB16029C6356500CB1C2F /* CafeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeModel.swift; sourceTree = "<group>"; };
+		0C4BB16229C6467300CB1C2F /* UserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableCell.swift; sourceTree = "<group>"; };
+		0C4BB16429C64A9200CB1C2F /* UserTableCellTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableCellTypeEnum.swift; sourceTree = "<group>"; };
 		0C9F2C8629BC9A04009C4723 /* TasteHuntClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteHuntClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9F2C8929BC9A04009C4723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9F2C8B29BC9A04009C4723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,11 +176,12 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		0C4BB15F29C631C400CB1C2F /* CafeTableViewCell */ = {
+		0C4BB15F29C631C400CB1C2F /* UserTableCell */ = {
 			isa = PBXGroup;
 			children = (
+				0C4BB16229C6467300CB1C2F /* UserTableCell.swift */,
 			);
-			path = CafeTableViewCell;
+			path = UserTableCell;
 			sourceTree = "<group>";
 		};
 		0C9F2C7D29BC9A04009C4723 = {
@@ -250,6 +255,7 @@
 				0C9F2CB829BD03F3009C4723 /* UITextFieldTypeEnum.swift */,
 				0CC62AC229C329DB00B13A5C /* KitchenTypeEnum.swift */,
 				0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */,
+				0C4BB16429C64A9200CB1C2F /* UserTableCellTypeEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -291,7 +297,7 @@
 		0C9F2CBE29BDFDFD009C4723 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0C4BB15F29C631C400CB1C2F /* CafeTableViewCell */,
+				0C4BB15F29C631C400CB1C2F /* UserTableCell */,
 				0C9F2CC229BDFF69009C4723 /* SelectKitchenCollectionViewCell */,
 			);
 			path = Cells;
@@ -503,6 +509,7 @@
 				0C4BB15629C37B2900CB1C2F /* SettingsController.swift in Sources */,
 				0C9F2CA029BC9A5C009C4723 /* BaseViewController.swift in Sources */,
 				0C4BB14429C36E9A00CB1C2F /* TabbarController.swift in Sources */,
+				0C4BB16329C6467300CB1C2F /* UserTableCell.swift in Sources */,
 				0C9F2CC429BDFF8E009C4723 /* SelectKitchenCoollectionViewCell.swift in Sources */,
 				0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */,
 				0C4BB15C29C37DB200CB1C2F /* Segmentable.swift in Sources */,
@@ -511,6 +518,7 @@
 				0C4BB14729C3734500CB1C2F /* CafeControllers.swift in Sources */,
 				0C4BB15029C37AF100CB1C2F /* VisitController.swift in Sources */,
 				0C4BB15929C37D9300CB1C2F /* CustomSegmentControll.swift in Sources */,
+				0C4BB16529C64A9200CB1C2F /* UserTableCellTypeEnum.swift in Sources */,
 				0C4BB15229C37B0400CB1C2F /* CreateVisitController.swift in Sources */,
 				0C9F2CFB29C2B189009C4723 /* TasteHuntAPI.swift in Sources */,
 				0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */,
