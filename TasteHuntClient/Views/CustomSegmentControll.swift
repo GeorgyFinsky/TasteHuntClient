@@ -88,7 +88,7 @@ class UniversalSegmenControl: UIView {
         
         mainContentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(40)
         }
         
         let itemWidth = mainContentView.frame.width / CGFloat(segmentItems.count)
