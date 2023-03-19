@@ -26,6 +26,12 @@ enum TasteHuntAPI {
     )
     case getAllUsers
     case getAllCafes
+    case createVisit(
+        id: UUID,
+        guestsID: String,
+        cafeID: String,
+        date: String
+    )
 }
 
 extension TasteHuntAPI: TargetType {
@@ -50,6 +56,8 @@ extension TasteHuntAPI: TargetType {
                 return "users"
             case .getAllCafes:
                 return "cafes"
+            case .createVisit:
+                return "visits"
         }
     }
     
@@ -57,7 +65,7 @@ extension TasteHuntAPI: TargetType {
         switch self {
             case .isUsernameExist, .login, .getAllUsers, .getAllCafes:
                 return .get
-            case .registrateGuest:
+            case .registrateGuest, .createVisit:
                 return .post
             case .addKitchens, .addProfileImage:
                 return .put
@@ -113,6 +121,16 @@ extension TasteHuntAPI: TargetType {
                 params["password"] = password
             case .getAllUsers: return nil
             case .getAllCafes: return nil
+            case .createVisit(
+                let id,
+                let guestsID,
+                let cafeID,
+                let date
+            ):
+                params["id"] = id
+                params["guestsID"] = guestsID
+                params["cafeID"] = cafeID
+                params["data"] = date
         }
         return params
     }

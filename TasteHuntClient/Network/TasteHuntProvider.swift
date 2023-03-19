@@ -97,5 +97,22 @@ final class TasteHuntProvider {
         }
     }
     
+    func createVisit(id: UUID, guestsID: String, cafeID: String, date: String, success: @escaping ObjectResponce<GuestPublicModel>, failure: @escaping Error) {
+        provider.request(.createVisit(
+            id: id,
+            guestsID: guestsID,
+            cafeID: cafeID,
+            date: date)
+        ) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode(GuestPublicModel.self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
+    
     
 }
