@@ -261,6 +261,12 @@ extension CafeController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         mapView.animate(toLocation: marker.position)
         
+        if let cafeMarker = marker.userData as? CafeMarker {
+            let profileVC = CafeProfileController()
+            profileVC.set(cafe: cafeMarker.cafe!)
+            
+            self.present(profileVC, animated: true)
+        }
         if marker.userData is GMUCluster {
             mapView.animate(toZoom: mapView.camera.zoom + 1)
             return true
@@ -287,7 +293,10 @@ extension CafeController: GMUClusterRendererDelegate {
 extension CafeController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        let profileVC = CafeProfileController()
+        profileVC.set(cafe: cafes[indexPath.row])
+        
+        self.present(profileVC, animated: true)
     }
     
 }
