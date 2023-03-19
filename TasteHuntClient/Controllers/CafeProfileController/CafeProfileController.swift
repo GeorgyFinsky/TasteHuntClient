@@ -7,18 +7,12 @@
 
 import UIKit
 import SnapKit
-import SDWebImage
 import GoogleMaps
 
 final class CafeProfileController: BaseController {
     
     // MARK: -
     // MARK: UIObjects
-    private lazy var profileImage: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
-    }()
-    
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -113,7 +107,6 @@ final class CafeProfileController: BaseController {
         guard let cafe else { return }
         self.nameLabel.text = cafe.name
         self.phoneLabel.text = cafe.phone
-        self.profileImage.sd_setImage(with: URL(string: cafe.profileImageURL))
         self.workTimeLabel.text = "Monday: \(cafe.mondayWorkTime)\nThesday: \(cafe.thesdayWorkTime)\nWednesday: \(cafe.wednesdayWorkTime)\nThusday: \(cafe.thusdayWorkTime)\nFriday: \(cafe.fridayWorkTime)\nSaturday \(cafe.saturdayWorkTime)\nSunday: \(cafe.sundayWorkTime)"
     }
     
@@ -124,7 +117,6 @@ final class CafeProfileController: BaseController {
 extension CafeProfileController {
     
     private func setupLayout() {
-        self.contentView.addSubview(profileImage)
         self.contentView.addSubview(nameLabel)
         self.contentView.addSubview(phoneLabel)
         self.contentView.addSubview(stack)
@@ -135,14 +127,8 @@ extension CafeProfileController {
     }
     
     private func makeConstraints() {
-        profileImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
-            make.height.width.equalTo(100)
-            make.centerX.equalToSuperview()
-        }
-        
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileImage.snp.bottom).offset(20)
+            make.top.equalToSuperview().offset(40)
             make.centerX.equalToSuperview()
         }
         
@@ -195,7 +181,7 @@ extension CafeProfileController {
         let createVisitVC = CreateVisitController()
        // createVisitVC.set(cafe: CafeInAppModel)
         
-        self.push(createVisitVC, animated: true)
+        self.present(createVisitVC, animated: true)
     }
     
     @objc private func menuButtonDidTap() {

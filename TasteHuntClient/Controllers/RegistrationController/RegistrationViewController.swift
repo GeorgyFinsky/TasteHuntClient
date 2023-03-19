@@ -172,7 +172,7 @@ extension RegistrationController {
         navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.backward")
         navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.backward")!.withTintColor(.purple),
+            image: UIImage(systemName: "chevron.backward")!,
             style: .plain,
             target: self,
             action: #selector(backButtonDidTap(sender:))

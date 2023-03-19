@@ -265,7 +265,7 @@ extension CafeController: GMSMapViewDelegate {
             let profileVC = CafeProfileController()
             profileVC.set(cafe: cafeMarker.cafe!)
             
-            self.present(profileVC, animated: true)
+            self.push(profileVC, animated: true)
         }
         if marker.userData is GMUCluster {
             mapView.animate(toZoom: mapView.camera.zoom + 1)
@@ -296,7 +296,7 @@ extension CafeController: UITableViewDelegate {
         let profileVC = CafeProfileController()
         profileVC.set(cafe: cafes[indexPath.row])
         
-        self.present(profileVC, animated: true)
+        self.push(profileVC, animated: true)
     }
     
 }

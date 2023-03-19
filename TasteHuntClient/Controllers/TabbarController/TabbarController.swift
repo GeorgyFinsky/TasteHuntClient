@@ -14,6 +14,8 @@ final class BaseTabbarController: UITabBarController {
         
         configurateTabBar()
         
+        self.selectedIndex = 1
+        
         let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.view.bounds
