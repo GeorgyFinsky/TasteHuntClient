@@ -32,6 +32,7 @@ enum TasteHuntAPI {
         cafeID: String,
         date: String
     )
+    case getUserVisits
 }
 
 extension TasteHuntAPI: TargetType {
@@ -58,12 +59,14 @@ extension TasteHuntAPI: TargetType {
                 return "cafes"
             case .createVisit:
                 return "visits"
+            case .getUserVisits:
+                return "visits"
         }
     }
     
     var method: Moya.Method {
         switch self {
-            case .isUsernameExist, .login, .getAllUsers, .getAllCafes:
+            case .isUsernameExist, .login, .getAllUsers, .getAllCafes, .getUserVisits:
                 return .get
             case .registrateGuest, .createVisit:
                 return .post
@@ -74,7 +77,7 @@ extension TasteHuntAPI: TargetType {
     
     var headers: [String : String]? {
         switch self {
-            case .addKitchens, .addProfileImage:
+            case .addKitchens, .addProfileImage, .getUserVisits:
                 guard let token = UserDefaults.standard.object(forKey: "accessToken") as? String else { return nil }
                 return ["AccessToken": token]
             default: return nil
@@ -121,6 +124,7 @@ extension TasteHuntAPI: TargetType {
                 params["password"] = password
             case .getAllUsers: return nil
             case .getAllCafes: return nil
+            case .getUserVisits: return nil
             case .createVisit(
                 let id,
                 let guestsID,
