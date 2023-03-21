@@ -126,4 +126,16 @@ final class TasteHuntProvider {
         }
     }
     
+    func getCafe(cafeID: String, success: @escaping ObjectResponce<CafeModel>, failure: @escaping Error) {
+        provider.request(.getCafe(cafeID: cafeID)) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode(CafeModel.self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
+    
 }
