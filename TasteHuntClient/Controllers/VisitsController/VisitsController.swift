@@ -98,11 +98,7 @@ final class VisitsController: BaseController {
     
     // MARK: -
     // MARK: Propertes
-    private var visits = [VisitModel]() {
-        didSet {
-            collapse()
-        }
-    }
+    private var visits = [VisitModel]()
     
     // MARK: -
     // MARK: Lifecircle
@@ -123,7 +119,18 @@ final class VisitsController: BaseController {
     }
     
     private func getData() {
-        //allVisits
+        TasteHuntProvider().getUserVisits { [weak self] result in
+            guard let self else { return }
+            result.forEach { visit in
+                let visitDate = Date(timeIntervalSince1970: Double(visit.date) ?? 0.0)
+                if visitDate < Date() {
+                    self.visits.append(visit)
+                }
+            }
+            self.collapse()
+        } failure: { errorString in
+            print(errorString)
+        }
     }
     
 }
@@ -205,6 +212,7 @@ extension VisitsController {
     }
     
     @objc private func reloadData() {
+        self.visits.removeAll()
         self.getData()
     }
     
