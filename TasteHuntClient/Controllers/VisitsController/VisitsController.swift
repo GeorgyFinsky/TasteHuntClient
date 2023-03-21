@@ -31,6 +31,10 @@ final class VisitsController: BaseController {
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
+        table.backgroundColor = .clear
+        table.separatorColor = .purple
+        table.dataSource = self
+        table.delegate = self
         return table
     }()
     
@@ -44,6 +48,11 @@ final class VisitsController: BaseController {
     
     private lazy var isEmptyViewTitleLabel: UILabel = {
         let label = UILabel()
+        label.text = "You have no scheduled visits"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 24)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -89,7 +98,11 @@ final class VisitsController: BaseController {
     
     // MARK: -
     // MARK: Propertes
-    private var visits = [VisitModel]()
+    private var visits = [VisitModel]() {
+        didSet {
+            collapse()
+        }
+    }
     
     // MARK: -
     // MARK: Lifecircle
@@ -99,10 +112,14 @@ final class VisitsController: BaseController {
         setupLayout()
         makeConstraints()
         getData()
+        collapse()
     }
     
     private func registerCell() {
-        
+        tableView.register(
+            UserTableCell.self,
+            forCellReuseIdentifier: UserTableCell.id
+        )
     }
     
     private func getData() {
@@ -151,6 +168,28 @@ extension VisitsController {
         createVisitButton.snp.makeConstraints { make in
             make.height.width.equalTo(40)
         }
+        
+        isEmptyView.snp.makeConstraints { make in
+            make.top.equalTo(isEmptyViewTitleLabel.snp.top).offset(-20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalTo(isEmptyViewTitleLabel.snp.bottom).offset(20)
+            make.centerY.centerX.equalToSuperview()
+        }
+        
+        isEmptyViewTitleLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
+    }
+    
+    private func collapse() {
+        if self.visits.count == 0 {
+            isEmptyView.alpha = 1
+            tableView.alpha = 0
+        } else {
+            isEmptyView.alpha = 0
+            tableView.alpha = 1
+        }
     }
     
 }
@@ -167,6 +206,39 @@ extension VisitsController {
     
     @objc private func reloadData() {
         self.getData()
+    }
+    
+}
+
+// MARK: -
+// MARK: Buttons Action
+extension VisitsController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let visitVC = VisitController()
+        visitVC.set(visit: visits[indexPath.row])
+        
+        self.push(visitVC, animated: true)
+    }
+    
+}
+
+// MARK: -
+// MARK: Buttons Action
+extension VisitsController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return visits.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: UserTableCell.id,
+            for: indexPath
+        ) as! UserTableCell
+        cell.set(visit: visits[indexPath.row])
+        
+        return cell
     }
     
 }
