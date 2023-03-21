@@ -114,5 +114,16 @@ final class TasteHuntProvider {
         }
     }
     
+    func getUserVisits(success: @escaping ArrayResponce<VisitModel>, failure: @escaping Error) {
+        provider.request(.getUserVisits) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode([VisitModel].self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
     
 }
