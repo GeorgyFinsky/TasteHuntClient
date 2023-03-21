@@ -6,11 +6,167 @@
 //
 
 import UIKit
+import SnapKit
 
 final class VisitsController: BaseController {
     
+    // MARK: -
+    // MARK: UIObjects
+    private lazy var topContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .purple
+        view.layer.cornerRadius = 30
+        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        return view
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Visits"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 32)
+        return label
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        return table
+    }()
+    
+    private lazy var isEmptyView: UIView = {
+        let view = UIView()
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.purple.cgColor
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
+    private lazy var isEmptyViewTitleLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    private lazy var createVisitButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.imageView?.contentMode = .scaleAspectFit
+        button.setImage(
+            UIImage(systemName: "plus"),
+            for: .normal
+        )
+        button.addTarget(
+            self,
+            action: #selector(createVisitButtonDidTap),
+            for: .touchUpInside
+        )
+        return button
+    }()
+    
+    private lazy var reloadDataButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.imageView?.contentMode = .scaleAspectFit
+        button.setImage(
+            UIImage(systemName: "goforward"),
+            for: .normal
+        )
+        button.addTarget(
+            self,
+            action: #selector(reloadData),
+            for: .touchUpInside
+        )
+        return button
+    }()
+    
+    private lazy var stack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 10
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
+    // MARK: -
+    // MARK: Propertes
+    private var visits = [VisitModel]()
+    
+    // MARK: -
+    // MARK: Lifecircle
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerCell()
+        setupLayout()
+        makeConstraints()
+        getData()
+    }
+    
+    private func registerCell() {
+        
+    }
+    
+    private func getData() {
+        //allVisits
+    }
+    
+}
+
+// MARK: -
+// MARK: SetupUI
+extension VisitsController {
+    
+    private func setupLayout() {
+        self.navigationController?.isNavigationBarHidden = true
+        
+        self.view.addSubview(topContainerView)
+        self.topContainerView.addSubview(stack)
+        self.topContainerView.addSubview(titleLabel)
+        self.stack.addArrangedSubview(reloadDataButton)
+        self.stack.addArrangedSubview(createVisitButton)
+        self.contentView.addSubview(tableView)
+        self.contentView.addSubview(isEmptyView)
+        self.isEmptyView.addSubview(isEmptyViewTitleLabel)
+    }
+    
+    private func makeConstraints() {
+        topContainerView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(titleLabel.snp.bottom).offset(20)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentView.snp.top).offset(20)
+            make.centerX.equalToSuperview()
+        }
+        
+        stack.snp.makeConstraints { make in
+            make.centerY.equalTo(titleLabel.snp.centerY)
+            make.trailing.equalToSuperview().inset(20)
+        }
+        
+        reloadDataButton.snp.makeConstraints { make in
+            make.height.width.equalTo(40)
+        }
+        
+        createVisitButton.snp.makeConstraints { make in
+            make.height.width.equalTo(40)
+        }
+    }
+    
+}
+
+// MARK: -
+// MARK: Buttons Action
+extension VisitsController {
+    
+    @objc private func createVisitButtonDidTap() {
+        let createVisetVC = CreateVisitController()
+        
+        self.push(createVisetVC, animated: true)
+    }
+    
+    @objc private func reloadData() {
+        self.getData()
     }
     
 }
