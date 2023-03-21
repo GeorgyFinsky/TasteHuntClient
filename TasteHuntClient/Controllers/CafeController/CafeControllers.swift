@@ -143,8 +143,8 @@ final class CafeController: BaseController {
     
     private func parseStringIntoArray(value: String) -> [String] {
         var outputArray = [String]()
+        var outputArrayObject: String = ""
         for i in value {
-            var outputArrayObject: String = ""
             if i == "|" {
                 outputArray.append(outputArrayObject)
                 outputArrayObject = ""
