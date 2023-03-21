@@ -33,6 +33,7 @@ enum TasteHuntAPI {
         date: String
     )
     case getUserVisits
+    case getCafe(cafeID: String)
 }
 
 extension TasteHuntAPI: TargetType {
@@ -57,6 +58,8 @@ extension TasteHuntAPI: TargetType {
                 return "users"
             case .getAllCafes:
                 return "cafes"
+            case .getCafe:
+                return "cafes/current"
             case .createVisit:
                 return "visits"
             case .getUserVisits:
@@ -66,7 +69,7 @@ extension TasteHuntAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-            case .isUsernameExist, .login, .getAllUsers, .getAllCafes, .getUserVisits:
+            case .isUsernameExist, .login, .getAllUsers, .getAllCafes, .getUserVisits, .getCafe:
                 return .get
             case .registrateGuest, .createVisit:
                 return .post
@@ -135,6 +138,8 @@ extension TasteHuntAPI: TargetType {
                 params["guestsID"] = guestsID
                 params["cafeID"] = cafeID
                 params["data"] = date
+            case .getCafe(let cafeID):
+                params["cafeID"] = cafeID
         }
         return params
     }
