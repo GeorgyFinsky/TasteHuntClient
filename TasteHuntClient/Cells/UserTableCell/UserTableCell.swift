@@ -28,7 +28,7 @@ final class UserTableCell: UITableViewCell {
         return label
     }()
     
-    private lazy var kitchensLabel: UILabel = {
+    private lazy var infoLabel: UILabel = {
         let label = UILabel()
         label.font = .italicSystemFont(ofSize: 16)
         label.textColor = .darkGray
@@ -53,13 +53,24 @@ final class UserTableCell: UITableViewCell {
         self.type = .cafe
         self.nameLabel.text = cafe.name
         self.profileImage.sd_setImage(with: URL(string: cafe.profileImageURL))
-        self.profileImage.image = UIImage(systemName: "person")!.withTintColor(.purple)
+        self.profileImage.image = UIImage(systemName: "person")!
         
         cafe.kitchens.forEach { kitchen in
             kitchens += "\(kitchen) "
         }
         
-        self.kitchensLabel.text = kitchens
+        self.infoLabel.text = kitchens
+    }
+    
+    func set(visit: VisitModel) {
+        self.type = .visit
+        
+        getData(cafeID: visit.cafeID)
+        
+        let date = Date(timeIntervalSince1970: Double(visit.date) ?? 0.0)
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateFormat = "MMM d, h:mm a"
+        self.infoLabel.text = dayTimePeriodFormatter.string(from: date)
     }
     
     func set(guest: GuestModel) {
@@ -72,39 +83,67 @@ final class UserTableCell: UITableViewCell {
         }
     }
     
-    func setupLayout() {
-        self.contentView.addSubview(profileImage)
+    private func setupLayout() {
         self.contentView.addSubview(nameLabel)
         if type == .cafe {
-            self.contentView.addSubview(kitchensLabel)
+            self.contentView.addSubview(profileImage)
+            self.contentView.addSubview(infoLabel)
+        } else if type == .guest {
+            self.contentView.addSubview(profileImage)
+        } else if type == .visit {
+            self.contentView.addSubview(infoLabel)
         }
     }
     
-    func makeConstraints() {
-        let profileImageEdges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        profileImage.snp.makeConstraints { make in
-            make.height.width.equalTo(70)
-            make.top.leading.bottom.equalToSuperview().inset(profileImageEdges)
-        }
-        
-        if self.type == .cafe {
+    private func makeConstraints() {
+        if type == .cafe {
+            let profileImageEdges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            profileImage.snp.makeConstraints { make in
+                make.height.width.equalTo(70)
+                make.top.leading.bottom.equalToSuperview().inset(profileImageEdges)
+            }
+            
             nameLabel.snp.makeConstraints { make in
                 make.top.equalToSuperview().inset(14)
                 make.leading.equalTo(profileImage.snp.trailing).offset(14)
                 make.trailing.equalToSuperview()
             }
             
-            kitchensLabel.snp.makeConstraints { make in
+            infoLabel.snp.makeConstraints { make in
                 make.top.equalTo(nameLabel.snp.bottom).offset(4)
                 make.leading.equalTo(profileImage.snp.trailing).offset(14)
                 make.trailing.bottom.equalToSuperview().inset(10)
             }
-        } else {
+        } else if type == .guest {
+            let profileImageEdges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            profileImage.snp.makeConstraints { make in
+                make.height.width.equalTo(70)
+                make.top.leading.bottom.equalToSuperview().inset(profileImageEdges)
+            }
+            
             nameLabel.snp.makeConstraints { make in
                 make.leading.equalTo(profileImage.snp.trailing).offset(14)
                 make.trailing.equalToSuperview()
-                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview()
             }
+        } else if type == .visit {
+            let labelEdges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            nameLabel.snp.makeConstraints { make in
+                make.top.leading.trailing.equalToSuperview().inset(labelEdges)
+            }
+            
+            infoLabel.snp.makeConstraints { make in
+                make.top.equalTo(nameLabel.snp.bottom).offset(4)
+                make.leading.trailing.bottom.equalToSuperview().inset(labelEdges)
+            }
+        }
+    }
+    
+    private func getData(cafeID: String) {
+        TasteHuntProvider().getCafe(cafeID: cafeID) { [weak self] result in
+            self?.nameLabel.text = result.name
+        } failure: { errorString in
+            print(errorString)
         }
     }
     

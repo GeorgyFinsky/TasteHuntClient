@@ -10,4 +10,5 @@ import Foundation
 enum UserTableCellType {
     case guest
     case cafe
+    case visit
 }

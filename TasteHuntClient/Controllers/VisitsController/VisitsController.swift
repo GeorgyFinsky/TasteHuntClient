@@ -226,6 +226,7 @@ extension VisitsController: UITableViewDelegate {
         let visitVC = VisitController()
         visitVC.set(visit: visits[indexPath.row])
         
+        tableView.deselectRow(at: indexPath, animated: true)
         self.push(visitVC, animated: true)
     }
     
