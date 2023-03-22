@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2EA86329CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2EA86229CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift */; };
+		0C2EA86629CB5A0A00E74193 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2EA86529CB5A0A00E74193 /* SearchTableViewController.swift */; };
+		0C2EA86929CB5D5100E74193 /* SelectTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2EA86829CB5D5100E74193 /* SelectTableCell.swift */; };
 		0C4BB14429C36E9A00CB1C2F /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14329C36E9A00CB1C2F /* TabbarController.swift */; };
 		0C4BB14729C3734500CB1C2F /* CafeControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14629C3734500CB1C2F /* CafeControllers.swift */; };
 		0C4BB14E29C37AE400CB1C2F /* VisitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14D29C37AE400CB1C2F /* VisitsController.swift */; };
-		0C4BB15029C37AF100CB1C2F /* VisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB14F29C37AF100CB1C2F /* VisitController.swift */; };
 		0C4BB15229C37B0400CB1C2F /* CreateVisitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15129C37B0400CB1C2F /* CreateVisitController.swift */; };
 		0C4BB15429C37B1800CB1C2F /* CafeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15329C37B1800CB1C2F /* CafeProfileController.swift */; };
 		0C4BB15629C37B2900CB1C2F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB15529C37B2900CB1C2F /* SettingsController.swift */; };
@@ -50,10 +52,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C2EA86229CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCafeControllerTypeEnum.swift; sourceTree = "<group>"; };
+		0C2EA86529CB5A0A00E74193 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		0C2EA86829CB5D5100E74193 /* SelectTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTableCell.swift; sourceTree = "<group>"; };
 		0C4BB14329C36E9A00CB1C2F /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		0C4BB14629C3734500CB1C2F /* CafeControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeControllers.swift; sourceTree = "<group>"; };
 		0C4BB14D29C37AE400CB1C2F /* VisitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsController.swift; sourceTree = "<group>"; };
-		0C4BB14F29C37AF100CB1C2F /* VisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitController.swift; sourceTree = "<group>"; };
 		0C4BB15129C37B0400CB1C2F /* CreateVisitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVisitController.swift; sourceTree = "<group>"; };
 		0C4BB15329C37B1800CB1C2F /* CafeProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeProfileController.swift; sourceTree = "<group>"; };
 		0C4BB15529C37B2900CB1C2F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C2EA86429CB59E500E74193 /* SearchTableController */ = {
+			isa = PBXGroup;
+			children = (
+				0C2EA86529CB5A0A00E74193 /* SearchTableViewController.swift */,
+			);
+			path = SearchTableController;
+			sourceTree = "<group>";
+		};
+		0C2EA86729CB5D3F00E74193 /* SelectTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				0C2EA86829CB5D5100E74193 /* SelectTableCell.swift */,
+			);
+			path = SelectTableCell;
+			sourceTree = "<group>";
+		};
 		0C4BB14229C36E6800CB1C2F /* TabbarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,14 +166,6 @@
 				0C4BB15129C37B0400CB1C2F /* CreateVisitController.swift */,
 			);
 			path = CreateVisitController;
-			sourceTree = "<group>";
-		};
-		0C4BB14B29C37A8700CB1C2F /* VisitController */ = {
-			isa = PBXGroup;
-			children = (
-				0C4BB14F29C37AF100CB1C2F /* VisitController.swift */,
-			);
-			path = VisitController;
 			sourceTree = "<group>";
 		};
 		0C4BB14C29C37AB000CB1C2F /* CafeProfileController */ = {
@@ -234,8 +246,8 @@
 				0C9F2CB329BCFC5A009C4723 /* RegistrationController */,
 				0C4BB14229C36E6800CB1C2F /* TabbarController */,
 				0C4BB14829C37A4400CB1C2F /* VisitsController */,
-				0C4BB14B29C37A8700CB1C2F /* VisitController */,
 				0C4BB14A29C37A7700CB1C2F /* CreateVisitController */,
+				0C2EA86429CB59E500E74193 /* SearchTableController */,
 				0C4BB14529C372DC00CB1C2F /* CafeController */,
 				0C4BB14C29C37AB000CB1C2F /* CafeProfileController */,
 				0C4BB14929C37A5D00CB1C2F /* SettingsController */,
@@ -261,6 +273,7 @@
 				0C4BB15D29C617F200CB1C2F /* CafeControllerDisplayTypeEnum.swift */,
 				0C4BB16429C64A9200CB1C2F /* UserTableCellTypeEnum.swift */,
 				0CC2B1DC29C722550022445A /* WorkTimeLabelTypeEnum.swift */,
+				0C2EA86229CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -302,6 +315,7 @@
 		0C9F2CBE29BDFDFD009C4723 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0C2EA86729CB5D3F00E74193 /* SelectTableCell */,
 				0C4BB15F29C631C400CB1C2F /* UserTableCell */,
 				0C9F2CC229BDFF69009C4723 /* SelectKitchenCollectionViewCell */,
 			);
@@ -501,6 +515,7 @@
 				0C9F2CA729BC9B2A009C4723 /* ViewBackgroundColorEnum.swift in Sources */,
 				0C9F2CAA29BCA0EF009C4723 /* UIViewControllerExtention.swift in Sources */,
 				0C4BB14E29C37AE400CB1C2F /* VisitsController.swift in Sources */,
+				0C2EA86929CB5D5100E74193 /* SelectTableCell.swift in Sources */,
 				0C4BB16129C6356500CB1C2F /* CafeModel.swift in Sources */,
 				0C9F2CF929C2B17A009C4723 /* TasteHuntProvider.swift in Sources */,
 				0C9F2CB529BCFC7B009C4723 /* RegistrationViewController.swift in Sources */,
@@ -514,16 +529,17 @@
 				0C9F2CB229BCA5DE009C4723 /* LoginViewController.swift in Sources */,
 				0CC62AC129C3115C00B13A5C /* AccessTokenModel.swift in Sources */,
 				0C4BB15629C37B2900CB1C2F /* SettingsController.swift in Sources */,
+				0C2EA86629CB5A0A00E74193 /* SearchTableViewController.swift in Sources */,
 				0C9F2CA029BC9A5C009C4723 /* BaseViewController.swift in Sources */,
 				0C4BB14429C36E9A00CB1C2F /* TabbarController.swift in Sources */,
 				0C4BB16329C6467300CB1C2F /* UserTableCell.swift in Sources */,
 				0C9F2CC429BDFF8E009C4723 /* SelectKitchenCoollectionViewCell.swift in Sources */,
 				0C9F2C8A29BC9A04009C4723 /* AppDelegate.swift in Sources */,
+				0C2EA86329CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift in Sources */,
 				0C4BB15C29C37DB200CB1C2F /* Segmentable.swift in Sources */,
 				0C9F2C8C29BC9A04009C4723 /* SceneDelegate.swift in Sources */,
 				0CC62AC329C329DB00B13A5C /* KitchenTypeEnum.swift in Sources */,
 				0C4BB14729C3734500CB1C2F /* CafeControllers.swift in Sources */,
-				0C4BB15029C37AF100CB1C2F /* VisitController.swift in Sources */,
 				0C4BB15929C37D9300CB1C2F /* CustomSegmentControll.swift in Sources */,
 				0C4BB16529C64A9200CB1C2F /* UserTableCellTypeEnum.swift in Sources */,
 				0C4BB15229C37B0400CB1C2F /* CreateVisitController.swift in Sources */,

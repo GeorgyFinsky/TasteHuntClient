@@ -12,20 +12,6 @@ import CoreLocation
 import SnapKit
 
 final class CafeController: BaseController {
-    let c1 = CafeInAppModel(
-        id: UUID(),
-        name: "шаурма",
-        phone: "1234555",
-        profileImageURL: "/Users/georgyfinsky/Library/CloudStorage/OneDrive-Личная/Dev/GitHub/TasteHuntAPI//Storage/Cafes/B3C787AB-02A0-4A4F-8F8D-DD02316113C0.jpg",
-        coordinates: CLLocation(latitude: 53.9, longitude: 27.5667),
-        kitchens: ["asian", "belarusian"],
-        mondayWorkTime: "12.00-23.00",
-        thesdayWorkTime: "12.00-23.00",
-        wednesdayWorkTime: "12.00-23.00",
-        thusdayWorkTime: "12.00-23.00",
-        fridayWorkTime: "12.00-23.00",
-        saturdayWorkTime: "12.00-23.00",
-        sundayWorkTime: "12.00-23.00")
     
     // MARK: -
     // MARK: UIObjects
@@ -95,8 +81,6 @@ final class CafeController: BaseController {
         registerCell()
         setupCluster()
         getData()
-        
-        cafes = [c1]
     }
     
     private func registerCell() {

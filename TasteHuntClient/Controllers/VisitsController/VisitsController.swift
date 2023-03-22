@@ -223,7 +223,7 @@ extension VisitsController {
 extension VisitsController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let visitVC = VisitController()
+        let visitVC = CreateVisitController()
         visitVC.set(visit: visits[indexPath.row])
         
         tableView.deselectRow(at: indexPath, animated: true)

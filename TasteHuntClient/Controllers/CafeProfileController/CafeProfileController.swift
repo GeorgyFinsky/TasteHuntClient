@@ -178,8 +178,9 @@ extension CafeProfileController {
 extension CafeProfileController {
     
     @objc private func createVisitButtonDidTap() {
+        guard let cafe else { return }
         let createVisitVC = CreateVisitController()
-       // createVisitVC.set(cafe: CafeInAppModel)
+        createVisitVC.set(cafe: (cafe.name, cafe.id.uuidString))
         
         self.push(createVisitVC, animated: true)
     }
