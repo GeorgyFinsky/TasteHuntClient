@@ -8,11 +8,17 @@
 import UIKit
 import SnapKit
 import GoogleMaps
+import SDWebImage
 
 final class CafeProfileController: BaseController {
     
     // MARK: -
     // MARK: UIObjects
+    private lazy var profileImageView: UIImageView = {
+       let imageView = UIImageView()
+        return imageView
+    }()
+    
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
