@@ -33,13 +33,13 @@ final class SelectKitchenCoollectionViewCell: UICollectionViewCell {
     
     private func setupContentView() {
         self.contentView.layer.borderWidth = 2
-        self.contentView.layer.borderColor = UIColor.purple.cgColor
+        self.contentView.layer.borderColor = isSelected ? UIColor.purple.cgColor : UIColor.systemGray5.cgColor
         self.contentView.layer.cornerRadius = 5
-        self.backgroundColor = isSelected ? UIColor.purple : UIColor.systemGray5
+        self.backgroundColor = UIColor.lightGray
     }
     
     func set(value: KitchensType) {
-//        self.imageView.sd_setImage(with: URL(string: KitchensType.imageURl))
+        self.imageView.sd_setImage(with: value.imageURl)
     }
     
     private func setupLayout() {

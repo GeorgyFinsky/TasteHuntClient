@@ -169,7 +169,7 @@ extension RegistrationController {
     
     private func setupLayout() {
         self.navigationItem.titleView = titleLabel
-        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.backward")
+        self.navigationController?.navigationBar.tintColor = UIColor.purple
         navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.backward")!,
@@ -370,10 +370,9 @@ extension RegistrationController {
             case usernameField:
                 validationType = .name
                 if let text = sender.text {
-                    TasteHuntProvider().isUsernameExist(username: text) { [weak self] result in
-                        guard let self else { return }
-                        
+                    TasteHuntProvider().isUsernameExist(username: text) { result in
                         self.isUsernameEnabled = result.isExist ? false : true
+                        self.isNextButtonEnabled()
                     } failure: { errorString in
                         print(errorString)
                     }

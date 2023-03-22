@@ -15,21 +15,21 @@ enum KitchensType: String, CaseIterable {
     case french
     case vegetarian
     
-//    var imageURl: String {
-//        switch self {
-//            case .asian:
-//                return (URL(string: ""))
-//            case .american:
-//                return (URL(string: ""))
-//            case .belarusian:
-//                return (URL(string: ""))
-//            case .italian:
-//                return (URL(string: ""))
-//            case .french:
-//                return (URL(string: ""))
-//            case .vegetarian:
-//                return (URL(string: ""))
-//        }
-//    }
+    var imageURl: URL {
+        switch self {
+            case .asian:
+                return URL(string: "http://localhost:8080/asian.jpg")!
+            case .american:
+                return URL(string: "http://localhost:8080/american.jpg")!
+            case .belarusian:
+                return URL(string: "http://localhost:8080/belarusian.jpg")!
+            case .italian:
+                return URL(string: "http://localhost:8080/italian.jpg")!
+            case .french:
+                return URL(string: "http://localhost:8080/french.jpg")!
+            case .vegetarian:
+                return URL(string: "http://localhost:8080/vegeterian.jpg")!
+        }
+    }
     
 }
