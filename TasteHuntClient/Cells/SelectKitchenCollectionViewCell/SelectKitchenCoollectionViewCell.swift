@@ -14,7 +14,7 @@ final class SelectKitchenCoollectionViewCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -32,14 +32,16 @@ final class SelectKitchenCoollectionViewCell: UICollectionViewCell {
     }
     
     private func setupContentView() {
-        self.contentView.layer.borderWidth = 2
-        self.contentView.layer.borderColor = isSelected ? UIColor.purple.cgColor : UIColor.systemGray5.cgColor
-        self.contentView.layer.cornerRadius = 5
-        self.backgroundColor = UIColor.lightGray
+        self.contentView.layer.borderWidth = 5
+        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.borderColor = self.isSelected ? UIColor.purple.cgColor : UIColor.systemGray5.cgColor
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.white
     }
     
     func set(value: KitchensType) {
         self.imageView.sd_setImage(with: value.imageURl)
+        self.contentView.layer.borderColor = self.isSelected ? UIColor.purple.cgColor : UIColor.systemGray5.cgColor
     }
     
     private func setupLayout() {

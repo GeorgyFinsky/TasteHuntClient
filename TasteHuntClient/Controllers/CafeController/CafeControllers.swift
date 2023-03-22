@@ -202,7 +202,7 @@ extension CafeController {
         cafes.forEach { cafe in
             let distance = userLocation.distance(from: cafe.coordinates)
             
-            if distance < nearestCafeDistanse?.1 ?? 0.0 {
+            if distance < nearestCafeDistanse?.1 ?? 1.0 {
                 nearestCafeDistanse = (cafe, distance)
             }
         }
