@@ -8,11 +8,11 @@
 import Foundation
 
 enum WorkTimeLabelType: String, CaseIterable {
-    case monday = "Monday"
-    case thesday = "Thesday"
-    case wednesday = "Wednesday"
-    case thusday = "Thusday"
-    case friday = "Friday"
-    case saturday = "Saturday"
-    case sunday = "Sunday"
+    case monday = "Monday:"
+    case thesday = "Thesday:"
+    case wednesday = "Wednesday:"
+    case thusday = "Thusday:"
+    case friday = "Friday:"
+    case saturday = "Saturday:"
+    case sunday = "Sunday:"
 }
