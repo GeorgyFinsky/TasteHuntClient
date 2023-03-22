@@ -202,7 +202,11 @@ extension CafeController {
         cafes.forEach { cafe in
             let distance = userLocation.distance(from: cafe.coordinates)
             
-            if distance < nearestCafeDistanse?.1 ?? 1.0 {
+            if nearestCafeDistanse != nil {
+                if distance < nearestCafeDistanse!.1 {
+                    nearestCafeDistanse = (cafe, distance)
+                }
+            } else {
                 nearestCafeDistanse = (cafe, distance)
             }
         }
@@ -210,7 +214,7 @@ extension CafeController {
         setupMapCamera(
             lat: nearestCafeDistanse?.0.coordinates.coordinate.latitude ?? 27.0,
             lon: nearestCafeDistanse?.0.coordinates.coordinate.longitude ?? 57.0,
-            zoom: 10
+            zoom: 15
         )
     }
     

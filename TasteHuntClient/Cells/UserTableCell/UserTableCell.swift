@@ -53,7 +53,6 @@ final class UserTableCell: UITableViewCell {
         self.type = .cafe
         self.nameLabel.text = cafe.name
         self.profileImage.sd_setImage(with: URL(string: cafe.profileImageURL))
-        self.profileImage.image = UIImage(systemName: "person")!
         
         cafe.kitchens.forEach { kitchen in
             kitchens += "\(kitchen) "
