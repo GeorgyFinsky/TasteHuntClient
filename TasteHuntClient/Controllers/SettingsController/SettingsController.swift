@@ -57,6 +57,10 @@ final class SettingsController: BaseController {
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 125
         imageView.tintColor = .purple
+        
+        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewDidTap))
+        imageView.addGestureRecognizer(tabGesture)
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -108,7 +112,6 @@ extension SettingsController {
             make.bottom.equalTo(titleLabel.snp.bottom).offset(20)
         }
         
-        let scrollViewHeight = self.view.bounds.height - topContainerView.bounds.height - self.view.safeAreaInsets.bottom
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(topContainerView.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
@@ -156,6 +159,63 @@ extension SettingsController {
         UserDefaults.standard.set(nil, forKey: "accessToken")
         UserDefaults.standard.set(nil, forKey: "profileImageURL")
         Environment.sceneDelegate?.setLoginAsInitial()
+    }
+    
+}
+
+extension SettingsController {
+    
+    @objc private func imageViewDidTap() {
+        showImagePickerOptions()
+    }
+    
+    private func showImagePickerOptions() {
+        let alertVC = UIAlertController(
+            title: "Pick a photo",
+            message: "Choose a picture from Library or camera",
+            preferredStyle: .actionSheet
+        )
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { [weak self] (action) in
+            guard let self else { return }
+            let cameraImagePicker = self.imagePicker(sourceType: .camera)
+            cameraImagePicker.delegate = self
+            self.present(cameraImagePicker, animated: true)
+        }
+        
+        let libraryAction = UIAlertAction(title: "Library", style: .default) { [weak self] (action) in
+            guard let self else { return }
+            let libraryImagePicker = self.imagePicker(sourceType: .photoLibrary)
+            libraryImagePicker.delegate = self
+            self.present(libraryImagePicker, animated: true)
+        }
+        let cancelActon = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertVC.addAction(cameraAction)
+        alertVC.addAction(libraryAction)
+        alertVC.addAction(cancelActon)
+        
+        self.present(alertVC, animated: true)
+    }
+    
+    private func imagePicker(sourceType: UIImagePickerController.SourceType) -> UIImagePickerController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        return imagePicker
+    }
+}
+
+extension SettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.originalImage] as! UIImage
+        
+        
+        
+        UserDefaults.standard.set(nil, forKey: "profileImageURL")
+        self.profileImageView.image = image
+        self.profileImageView.contentMode = .scaleToFill
+        self.dismiss(animated: true)
     }
     
 }
