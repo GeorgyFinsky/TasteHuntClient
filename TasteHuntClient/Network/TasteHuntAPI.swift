@@ -137,7 +137,7 @@ extension TasteHuntAPI: TargetType {
                 params["id"] = id
                 params["guestsID"] = guestsID
                 params["cafeID"] = cafeID
-                params["data"] = date
+                params["date"] = date
             case .getCafe(let cafeID):
                 params["cafeID"] = cafeID
         }

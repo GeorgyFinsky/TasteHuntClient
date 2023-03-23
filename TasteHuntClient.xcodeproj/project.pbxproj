@@ -43,6 +43,7 @@
 		0C9F2CFD29C30BDA009C4723 /* NameExistingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */; };
 		0C9F2CFF29C30CC2009C4723 /* GuestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2CFE29C30CC2009C4723 /* GuestModel.swift */; };
 		0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */; };
+		0CC19A3A29CBDD1E001AE5BE /* NotificationTimeTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC19A3929CBDD1E001AE5BE /* NotificationTimeTypeEnum.swift */; };
 		0CC2B1DD29C722550022445A /* WorkTimeLabelTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC2B1DC29C722550022445A /* WorkTimeLabelTypeEnum.swift */; };
 		0CC2B1DF29C747050022445A /* VisitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC2B1DE29C747050022445A /* VisitModel.swift */; };
 		0CC62AC129C3115C00B13A5C /* AccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC62AC029C3115C00B13A5C /* AccessTokenModel.swift */; };
@@ -89,6 +90,7 @@
 		0C9F2CFC29C30BDA009C4723 /* NameExistingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameExistingModel.swift; sourceTree = "<group>"; };
 		0C9F2CFE29C30CC2009C4723 /* GuestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestModel.swift; sourceTree = "<group>"; };
 		0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestPublicModel.swift; sourceTree = "<group>"; };
+		0CC19A3929CBDD1E001AE5BE /* NotificationTimeTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeTypeEnum.swift; sourceTree = "<group>"; };
 		0CC2B1DC29C722550022445A /* WorkTimeLabelTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeLabelTypeEnum.swift; sourceTree = "<group>"; };
 		0CC2B1DE29C747050022445A /* VisitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitModel.swift; sourceTree = "<group>"; };
 		0CC62AC029C3115C00B13A5C /* AccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenModel.swift; sourceTree = "<group>"; };
@@ -245,11 +247,11 @@
 				0C9F2CB029BCA5AB009C4723 /* LoginViewController */,
 				0C9F2CB329BCFC5A009C4723 /* RegistrationController */,
 				0C4BB14229C36E6800CB1C2F /* TabbarController */,
-				0C4BB14829C37A4400CB1C2F /* VisitsController */,
-				0C4BB14A29C37A7700CB1C2F /* CreateVisitController */,
-				0C2EA86429CB59E500E74193 /* SearchTableController */,
 				0C4BB14529C372DC00CB1C2F /* CafeController */,
 				0C4BB14C29C37AB000CB1C2F /* CafeProfileController */,
+				0C4BB14A29C37A7700CB1C2F /* CreateVisitController */,
+				0C2EA86429CB59E500E74193 /* SearchTableController */,
+				0C4BB14829C37A4400CB1C2F /* VisitsController */,
 				0C4BB14929C37A5D00CB1C2F /* SettingsController */,
 			);
 			path = Controllers;
@@ -274,6 +276,7 @@
 				0C4BB16429C64A9200CB1C2F /* UserTableCellTypeEnum.swift */,
 				0CC2B1DC29C722550022445A /* WorkTimeLabelTypeEnum.swift */,
 				0C2EA86229CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift */,
+				0CC19A3929CBDD1E001AE5BE /* NotificationTimeTypeEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				0C9F2CF929C2B17A009C4723 /* TasteHuntProvider.swift in Sources */,
 				0C9F2CB529BCFC7B009C4723 /* RegistrationViewController.swift in Sources */,
 				0CBBBAC629C33AE0000BE862 /* GuestPublicModel.swift in Sources */,
+				0CC19A3A29CBDD1E001AE5BE /* NotificationTimeTypeEnum.swift in Sources */,
 				0C9F2CB729BD00EF009C4723 /* UITextFieldExtention.swift in Sources */,
 				0C9F2CFF29C30CC2009C4723 /* GuestModel.swift in Sources */,
 				0C9F2CB929BD03F3009C4723 /* UITextFieldTypeEnum.swift in Sources */,
