@@ -155,7 +155,6 @@ final class CreateVisitController: BaseController {
             UIAction(title: NotificationTimeType.oneHour.rawValue, handler: selectionClosure),
             UIAction(title: NotificationTimeType.oneMinute.rawValue, handler: selectionClosure)
         ])
-        // button.tintColor = .purple
         button.titleLabel?.tintColor = .purple
         button.titleLabel?.font = .boldSystemFont(ofSize: 24)
         button.showsMenuAsPrimaryAction = true
@@ -366,7 +365,7 @@ extension CreateVisitController {
     }
     
     private func setupLayout() {
-        self.view.addSubview(scrollView)
+        self.contentView.addSubview(scrollView)
         self.scrollView.addSubview(scrollViewContentView)
         self.scrollViewContentView.addSubview(backButton)
         self.scrollViewContentView.addSubview(cafeView)
@@ -409,7 +408,7 @@ extension CreateVisitController {
         }
         
         backButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(10)
             make.leading.equalToSuperview().inset(16)
             make.height.width.equalTo(40)
         }

@@ -27,7 +27,7 @@ final class CafeProfileController: BaseController {
     
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
-        button.tintColor = .white
+        button.tintColor = .purple
         button.imageView?.contentMode = .scaleAspectFit
         button.setImage(
             UIImage(systemName: "chevron.backward"),
@@ -216,7 +216,6 @@ extension CafeProfileController {
                     workTimeLabel.text = self.cafe?.sundayWorkTime
                 default: break
             }
-            
             self.workTimeStack.addArrangedSubview(workTimeLabel)
             self.workTimeLabels.append(workTimeLabel)
         }
@@ -279,7 +278,7 @@ extension CafeProfileController {
         stack.snp.makeConstraints { make in
             make.top.equalTo(mapView.snp.bottom).offset(20)
             make.leading.leading.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(20)
         }
         
     }
