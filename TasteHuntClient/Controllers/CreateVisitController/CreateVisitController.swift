@@ -186,7 +186,7 @@ final class CreateVisitController: BaseController {
             self.createVisitButton.isEnabled = true
         }
     }
-    private var selectedNotifyTime: NotificationTimeType?
+    private var selectedNotifyTime: NotificationTimeType = .never
     private var allCafes = [CafeModel]()
     private var allGuests = [GuestModel]()
     private var visitGuests = [GuestModel]() {
@@ -581,8 +581,7 @@ extension CreateVisitController {
     
     @objc private func saveButtonDidTap() {
         guard let cafeNAMEandID,
-              let token = UserDefaults.standard.object(forKey: "accessToken") as? String,
-              let selectedNotifyTime else { return }
+              let token = UserDefaults.standard.object(forKey: "accessToken") as? String else { return }
         let visitID = UUID()
         var visitGuestsID = [String]()
         
