@@ -314,7 +314,11 @@ extension CafeProfileController {
     }
     
     @objc private func menuButtonDidTap() {
+        guard let cafe else { return }
+        let menuVC = MenuViewController()
+        menuVC.set(cafeID: cafe.id.uuidString)
         
+        self.present(menuVC, animated: true)
     }
     
 }
