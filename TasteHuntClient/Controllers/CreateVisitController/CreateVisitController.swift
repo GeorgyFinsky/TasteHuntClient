@@ -192,8 +192,9 @@ final class CreateVisitController: BaseController {
     private var visitGuests = [GuestModel]() {
         didSet {
             tableView.reloadData()
+            tableView.layoutIfNeeded()
             tableView.snp.updateConstraints { make in
-                make.height.equalTo(tableView.contentSize.height + guestsLabel.bounds.height)
+                make.height.equalTo(tableView.contentSize.height + guestsLabel.bounds.height + 40)
             }
         }
     }
@@ -274,13 +275,14 @@ final class CreateVisitController: BaseController {
     private func getVisitGuests() {
         guard let visit else { return }
         let visitGuestsIDs = parseStringIntoArray(value: visit.guestsID)
-        var visitGiests = [GuestModel]()
+        var outputGuests = [GuestModel]()
         
         visitGuestsIDs.forEach { id in
             if let index = allGuests.firstIndex(where: { $0.id.uuidString == id }) {
-                visitGiests.append(allGuests[index])
+                outputGuests.append(allGuests[index])
             }
         }
+        self.visitGuests = outputGuests
     }
     
     private func getVisitCafe(cafeID: String) {
@@ -561,6 +563,7 @@ extension CreateVisitController {
             }
             searchVC.selectBlock = { cafeID in
                 self.getVisitCafe(cafeID: cafeID)
+                self.selectCafeButton.alpha = 0
             }
         }
         if sender == addGuestButton {
@@ -570,6 +573,7 @@ extension CreateVisitController {
             searchVC.selectBlock = { guestID in
                 if let index = self.allGuests.firstIndex(where: { $0.id.uuidString == guestID }) {
                     self.visitGuests.append(self.allGuests[index])
+                    self.allGuests.remove(at: index)
                 }
             }
         }

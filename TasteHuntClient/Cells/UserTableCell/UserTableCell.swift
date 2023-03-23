@@ -14,7 +14,7 @@ final class UserTableCell: UITableViewCell {
     
     private lazy var profileImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 35
         imageView.tintColor = .purple

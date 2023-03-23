@@ -283,6 +283,7 @@ extension CafeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let profileVC = CafeProfileController()
         profileVC.set(cafe: cafes[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
         
         self.push(profileVC, animated: true)
     }

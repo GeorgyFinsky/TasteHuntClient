@@ -53,7 +53,7 @@ final class SettingsController: BaseController {
         let imageView = UIImageView()
         imageView.layer.borderColor = UIColor.purple.cgColor
         imageView.layer.borderWidth = 5
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 125
         imageView.tintColor = .purple
@@ -209,12 +209,15 @@ extension SettingsController: UIImagePickerControllerDelegate, UINavigationContr
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
+        guard let imageData = image.pngData() else { return }
         
+        TasteHuntProvider().addProfileImage(image: imageData) { [weak self] result in
+            UserDefaults.standard.set(result.profileImageURL, forKey: "profileImageURL")
+        } failure: { errorString in
+            print(errorString)
+        }
         
-        
-        UserDefaults.standard.set(nil, forKey: "profileImageURL")
         self.profileImageView.image = image
-        self.profileImageView.contentMode = .scaleToFill
         self.dismiss(animated: true)
     }
     
