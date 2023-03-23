@@ -85,6 +85,18 @@ final class TasteHuntProvider {
         }
     }
     
+    func addProfileImage(image: Data, success: @escaping ObjectResponce<GuestPublicModel>, failure: @escaping Error) {
+        provider.request(.addProfileImage(image: image)) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode(GuestPublicModel.self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
+    
     func getAllUsers(success: @escaping ArrayResponce<GuestModel>, failure: @escaping Error) {
         provider.request(.getAllUsers) { result in
             switch result {
