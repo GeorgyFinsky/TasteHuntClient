@@ -225,12 +225,12 @@ extension CafeProfileController {
     private func makeConstraints() {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.width.height.equalTo(self.view)
+            make.width.height.equalTo(self.contentView)
         }
         
         scrollViewContentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scrollView)
-            make.leading.trailing.equalTo(self.view)
+            make.leading.trailing.equalTo(self.contentView)
         }
         
         backButton.snp.makeConstraints { make in

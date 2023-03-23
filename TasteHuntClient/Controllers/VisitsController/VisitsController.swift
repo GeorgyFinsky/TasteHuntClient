@@ -49,7 +49,7 @@ final class VisitsController: BaseController {
     private lazy var isEmptyViewTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "You have no scheduled visits"
-        label.textColor = .white
+        label.textColor = .purple
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 24)
         label.numberOfLines = 0

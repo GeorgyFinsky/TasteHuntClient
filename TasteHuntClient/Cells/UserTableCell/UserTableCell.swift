@@ -40,6 +40,8 @@ final class UserTableCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.backgroundColor = .systemGray6
+        self.layer.backgroundColor = UIColor.clear.cgColor
         setupLayout()
         makeConstraints()
     }

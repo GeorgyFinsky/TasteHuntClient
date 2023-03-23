@@ -27,7 +27,7 @@ final class CreateVisitController: BaseController {
     
     private lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
-        button.tintColor = .white
+        button.tintColor = .purple
         button.imageView?.contentMode = .scaleAspectFit
         button.setImage(
             UIImage(systemName: "chevron.backward"),
@@ -87,7 +87,6 @@ final class CreateVisitController: BaseController {
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
-        table.alpha = 0
         table.backgroundColor = .clear
         table.separatorColor = .purple
         table.dataSource = self
@@ -149,13 +148,16 @@ final class CreateVisitController: BaseController {
             }
         }
         
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.menu = UIMenu(children: [
             UIAction(title: NotificationTimeType.never.rawValue, state: .on, handler: selectionClosure),
             UIAction(title: NotificationTimeType.oneDay.rawValue, handler: selectionClosure),
             UIAction(title: NotificationTimeType.oneHour.rawValue, handler: selectionClosure),
             UIAction(title: NotificationTimeType.oneMinute.rawValue, handler: selectionClosure)
         ])
+        // button.tintColor = .purple
+        button.titleLabel?.tintColor = .purple
+        button.titleLabel?.font = .boldSystemFont(ofSize: 24)
         button.showsMenuAsPrimaryAction = true
         button.changesSelectionAsPrimaryAction = true
         return button
@@ -192,9 +194,8 @@ final class CreateVisitController: BaseController {
         didSet {
             tableView.reloadData()
             tableView.snp.updateConstraints { make in
-                make.height.equalTo(tableView.contentSize.height)
+                make.height.equalTo(tableView.contentSize.height + guestsLabel.bounds.height)
             }
-            self.view.layoutIfNeeded()
         }
     }
     var updateBlock: (() -> ())?
@@ -399,12 +400,12 @@ extension CreateVisitController {
     private func makeConstraints() {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.width.height.equalTo(self.view)
+            make.width.height.equalTo(self.contentView)
         }
         
         scrollViewContentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scrollView)
-            make.leading.trailing.equalTo(self.view)
+            make.leading.trailing.equalTo(self.contentView)
         }
         
         backButton.snp.makeConstraints { make in
