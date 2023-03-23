@@ -196,6 +196,7 @@ final class CreateVisitController: BaseController {
             self.view.layoutIfNeeded()
         }
     }
+    var updateBlock: (() -> ())?
     
     // MARK: -
     // MARK: Lifecircle
@@ -517,6 +518,8 @@ extension CreateVisitController {
     
 }
 
+// MARK: -
+// MARK: Buttons Action
 extension CreateVisitController {
     
     @objc private func selectionButtonDidTap(sender: UIButton) {
@@ -564,7 +567,9 @@ extension CreateVisitController {
             cafeID: cafeNAMEandID.1,
             date: String(datePicker.date.timeIntervalSince1970)
         ) { [weak self] result in
-            self?.popToRoot(animated: true)
+            guard let self else { return }
+            self.popToRoot(animated: true)
+            self.updateBlock?()
         } failure: { errorString in
             print(errorString)
         }
@@ -576,6 +581,8 @@ extension CreateVisitController {
     
 }
 
+// MARK: -
+// MARK: UITableViewDelegate
 extension CreateVisitController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -584,6 +591,8 @@ extension CreateVisitController: UITableViewDelegate {
     
 }
 
+// MARK: -
+// MARK: UITableViewDataSource
 extension CreateVisitController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

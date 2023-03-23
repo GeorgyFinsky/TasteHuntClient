@@ -121,13 +121,15 @@ final class VisitsController: BaseController {
     private func getData() {
         TasteHuntProvider().getUserVisits { [weak self] result in
             guard let self else { return }
+            self.visits.removeAll()
             result.forEach { visit in
                 let visitDate = Date(timeIntervalSince1970: Double(visit.date) ?? 0.0)
-                if visitDate < Date() {
+                if visitDate > Date() {
                     self.visits.append(visit)
                 }
             }
             self.collapse()
+            self.tableView.reloadData()
         } failure: { errorString in
             print(errorString)
         }
@@ -187,6 +189,11 @@ extension VisitsController {
             make.centerX.centerY.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(topContainerView.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func collapse() {
@@ -207,7 +214,7 @@ extension VisitsController {
     
     @objc private func createVisitButtonDidTap() {
         let createVisetVC = CreateVisitController()
-        
+        createVisetVC.updateBlock = { self.getData() }
         self.push(createVisetVC, animated: true)
     }
     
