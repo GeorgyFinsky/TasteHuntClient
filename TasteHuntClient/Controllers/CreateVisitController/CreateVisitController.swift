@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import UserNotifications
 
 final class CreateVisitController: BaseController {
     
@@ -314,6 +315,33 @@ final class CreateVisitController: BaseController {
         return outputValue
     }
     
+    private func scheduleNotification(date: Date, title: String, body: NotificationTimeType, id: String, completion: (Bool) -> ()) {
+        let conponent = UNMutableNotificationContent()
+        conponent.title = title
+        conponent.body = body.rawValue
+        conponent.sound = UNNotificationSound.default
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar.dateComponents(
+            [.month, .day, .hour, .minute, .second],
+            from: date
+        )
+        let trigger = UNCalendarNotificationTrigger(
+            dateMatching: components,
+            repeats: false
+        )
+        let request = UNNotificationRequest(
+            identifier: id,
+            content: conponent,
+            trigger: trigger
+        )
+        let center = UNUserNotificationCenter.current()
+        center.add(
+            request,
+            withCompletionHandler: nil
+        )
+    }
+    
 }
 
 // MARK: -
@@ -480,7 +508,7 @@ extension CreateVisitController {
                 make.top.equalTo(guestsView.snp.bottom).offset(viewEdges.top)
                 make.leading.trailing.equalToSuperview().inset(viewEdges)
             }
-
+            
             notificationView.snp.makeConstraints { make in
                 make.top.equalTo(dateView.snp.bottom).offset(viewEdges.top)
                 make.leading.trailing.equalToSuperview().inset(viewEdges)
@@ -553,8 +581,9 @@ extension CreateVisitController {
     
     @objc private func saveButtonDidTap() {
         guard let cafeNAMEandID,
-              let token = UserDefaults.standard.object(forKey: "accessToken") as? String else { return }
-        
+              let token = UserDefaults.standard.object(forKey: "accessToken") as? String,
+              let selectedNotifyTime else { return }
+        let visitID = UUID()
         var visitGuestsID = [String]()
         
         visitGuestsID.append(token)
@@ -563,7 +592,7 @@ extension CreateVisitController {
         }
         
         TasteHuntProvider().createVisit(
-            id: UUID(),
+            id: visitID,
             guestsID: parseArrayIntoString(value: visitGuestsID),
             cafeID: cafeNAMEandID.1,
             date: String(datePicker.date.timeIntervalSince1970)
@@ -573,6 +602,30 @@ extension CreateVisitController {
             self.updateBlock?()
         } failure: { errorString in
             print(errorString)
+        }
+        
+        if selectedNotifyTime != .never {
+            let visitDate = datePicker.date.timeIntervalSince1970
+            var notifyDate = Date()
+            switch selectedNotifyTime {
+                case .oneDay:
+                    notifyDate = Date(timeIntervalSince1970: (visitDate - 86400))
+                case .oneHour:
+                    notifyDate = Date(timeIntervalSince1970: (visitDate - 3600))
+                case .oneMinute:
+                    notifyDate = Date(timeIntervalSince1970: (visitDate - 60))
+                default: break
+            }
+            scheduleNotification(
+                date: notifyDate,
+                title: cafeNAMEandID.0,
+                body: selectedNotifyTime,
+                id: visitID.uuidString
+            ) { (success) in
+                if success {
+                    print("send")
+                }
+            }
         }
     }
     
