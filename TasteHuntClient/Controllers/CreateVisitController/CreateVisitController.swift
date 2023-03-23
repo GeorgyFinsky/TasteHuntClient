@@ -421,6 +421,7 @@ extension CreateVisitController {
         if type == .createdVisit {
             dateView.snp.makeConstraints { make in
                 make.top.equalTo(guestsView.snp.bottom).offset(viewEdges.top)
+                make.bottom.equalTo(dateLabel.snp.bottom).offset(10)
                 make.leading.trailing.bottom.equalToSuperview().inset(viewEdges)
             }
         }
@@ -479,7 +480,7 @@ extension CreateVisitController {
                 make.top.equalTo(guestsView.snp.bottom).offset(viewEdges.top)
                 make.leading.trailing.equalToSuperview().inset(viewEdges)
             }
-            
+
             notificationView.snp.makeConstraints { make in
                 make.top.equalTo(dateView.snp.bottom).offset(viewEdges.top)
                 make.leading.trailing.equalToSuperview().inset(viewEdges)
