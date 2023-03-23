@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2B75F329CC8A7E004B3935 /* DichModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B75F229CC8A7E004B3935 /* DichModel.swift */; };
 		0C2EA86329CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2EA86229CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift */; };
 		0C2EA86629CB5A0A00E74193 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2EA86529CB5A0A00E74193 /* SearchTableViewController.swift */; };
 		0C2EA86929CB5D5100E74193 /* SelectTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2EA86829CB5D5100E74193 /* SelectTableCell.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C2B75F229CC8A7E004B3935 /* DichModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichModel.swift; sourceTree = "<group>"; };
 		0C2EA86229CAFC3700E74193 /* CreateCafeControllerTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCafeControllerTypeEnum.swift; sourceTree = "<group>"; };
 		0C2EA86529CB5A0A00E74193 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		0C2EA86829CB5D5100E74193 /* SelectTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTableCell.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				0CBBBAC529C33AE0000BE862 /* GuestPublicModel.swift */,
 				0C4BB16029C6356500CB1C2F /* CafeModel.swift */,
 				0CC2B1DE29C747050022445A /* VisitModel.swift */,
+				0C2B75F229CC8A7E004B3935 /* DichModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				0C9F2CB929BD03F3009C4723 /* UITextFieldTypeEnum.swift in Sources */,
 				0CC2B1DF29C747050022445A /* VisitModel.swift in Sources */,
 				0C9F2CAF29BCA527009C4723 /* Environment.swift in Sources */,
+				0C2B75F329CC8A7E004B3935 /* DichModel.swift in Sources */,
 				0C4BB15429C37B1800CB1C2F /* CafeProfileController.swift in Sources */,
 				0C9F2CB229BCA5DE009C4723 /* LoginViewController.swift in Sources */,
 				0CC62AC129C3115C00B13A5C /* AccessTokenModel.swift in Sources */,

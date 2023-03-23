@@ -150,4 +150,16 @@ final class TasteHuntProvider {
         }
     }
     
+    func getCafeMenu(cafeID: String, success: @escaping ArrayResponce<DichModel>, failure: @escaping Error) {
+        provider.request(.getCafeMenu(cafeID: cafeID)) { result in
+            switch result {
+                case .success(let responce):
+                    guard let result = try? JSONDecoder().decode([DichModel].self, from: responce.data) else { return }
+                    success(result)
+                case .failure(let error):
+                    failure(error.localizedDescription)
+            }
+        }
+    }
+    
 }
